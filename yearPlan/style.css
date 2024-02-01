@@ -1,0 +1,94 @@
+body{
+  font-family: "Cute Font", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.wrap{
+  width: 100%;
+  height: 100vh;
+  background-image: url('https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/bucketList/bg-grid.png');
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 360px;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 30px 10px;
+  box-sizing: border-box;
+}
+
+.title {
+  margin-bottom: 30px;
+  padding: 6px 20px;
+  border-radius: 10px;
+  background-color: tomato;
+  color: #fff;
+  text-align: center;
+  font-size: 24px;
+}
+
+.tab_list{
+  width: 100%;;
+  margin-bottom: 20px;
+}
+.tab_item{
+  padding: 3px 10px;
+  min-width: 60px;
+  font-family: "Cute Font", sans-serif;
+  font-size: 16px;
+  border: 1px solid #999;
+}
+
+.tab_item[aria-selected="true"]{
+  background-color: tomato;
+  color: #fff;
+}
+
+.bucketlist{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  width: 100%;
+  min-height: 480px;
+}
+
+.bucketlist[aria-hidden]{
+  display: none;
+}
+
+.bucketlist[aria-hidden="false"]{
+  display: flex;
+}
+
+.bucketlist .item{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  padding-top: 34px;
+  width: 160px;
+  height: 160px;
+  background-image: url('https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/bucketList/bucket-red.png');
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.bucketlist .item.light{
+  background-image: url('https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/bucketList/bucket-lightred.png');
+}
+
+.bucketlist .item.is_done::after{
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-image: url('https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/bucketList/done2024.png');
+  background-position: center;
+  background-size: cover;
+  content: '';
+}
