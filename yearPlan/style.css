@@ -23,7 +23,7 @@ body{
 }
 
 .title {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   padding: 6px 20px;
   border-radius: 10px;
   background-color: tomato;
@@ -34,13 +34,13 @@ body{
 
 .tab_list{
   width: 100%;;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .tab_item{
   padding: 3px 10px;
   min-width: 60px;
   font-family: "Cute Font", sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   border: 1px solid #999;
 }
 
@@ -76,17 +76,19 @@ body{
   height: 160px;
   background-image: url('https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/bucketList/bucket-red.png');
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 20px;
+  color: #fff;
 }
 
 .bucketlist .item.light{
+  color: tomato;
   background-image: url('https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/bucketList/bucket-lightred.png');
 }
 
 .bucketlist .item.is_done::after{
   position: absolute;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   background-image: url('https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/bucketList/done2024.png');
   background-position: center;
   background-size: cover;
