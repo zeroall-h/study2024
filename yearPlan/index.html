@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>2024년 신년계획</title>
   <link rel="stylesheet" href="reset.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Dongle&family=Hi+Melody&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="common.min.js"></script>
+  <style>
 
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  </style>
 </head>
-
 <body>
   <div class="wrap">
     <main class="container">
@@ -21,6 +21,7 @@
         <button type="button" role="tab" aria-selected="true" class="tab_item" id="tab1">취미</button>
         <button type="button" role="tab" aria-selected="false" class="tab_item" id="tab2">건강</button>
         <button type="button" role="tab" aria-selected="false" class="tab_item" id="tab3">공부</button>
+        <button type="button" role="tab" aria-selected="false" class="tab_item" id="tab4">경제</button>
       </nav>
       <div class="bucketlist" role="tabpanel" aria-labelledby="tab1">
         <p class="item">건강 탭</p>
@@ -38,48 +39,6 @@
   </div>
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <script>
 
-  document.addEventListener('DOMContentLoaded', (e)=>{
-    const items = document.querySelectorAll('.item');
-    items.forEach((item,index)=>{
-      const isDone=localStorage.getItem("item"+index) === "is_done";
-      if(isDone){
-        item.classList.add('is_done');
-      }
-    })
-  })
-
-  const items = document.querySelectorAll('.item');
-  items.forEach((item,index)=>{
-    item.addEventListener("click",function(){
-      item.classList.toggle('is_done');
-      if(item.classList.contains('is_done')){
-        localStorage.setItem("item"+index, "is_done")
-      }else{
-        localStorage.setItem("item"+index, "")
-      }
-    })
-  })
-  
-  function eventHandler(e) {
-    var $eTarget = $(e.currentTarget);
-    var $targetPanel = $('[aria-labelledby="' + $eTarget.attr('id') + '"]');
-    if (e.type === 'click') {
-      $eTarget
-        .attr('aria-selected', true)
-        .siblings('[role="tab"]')
-        .attr('aria-selected', false)
-      $targetPanel
-        .attr('aria-hidden', false)
-        .siblings('[role="tabpanel"]')
-        .attr('aria-hidden', true)
-    } else if (e.type === 'keydown' && e.which === 13) {
-      $(this).click();
-    }
-  }
-  $('[role="tab"]').on('click keydown', eventHandler);
-
-</script>
 </body>
 </html>
