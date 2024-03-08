@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>대한항공 메인</title>
-  <link rel="stylesheet" href="https://zeroall-h.github.io/study2024/codeReview/koreanair/css/reset.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://zeroall-h.github.io/study2024/codeReview/koreanair/css/style.css">
+  <!-- <link rel="stylesheet" href="https://zeroall-h.github.io/study2024/codeReview/koreanair/css/style.css"> -->
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
   <a href="#main" class="skipToMain">메뉴 건너뛰기</a>
@@ -22,8 +22,8 @@
       <nav class="nav"> 
         <ul class="main_menu">
           <li class="item">
-            <button type="button" class="item_name">예약</button>
-            <div class="item_contents">
+            <button type="button" class="item_name" id="gnb-0" aria-expanded="false" aria-controls="gnb-panel-0">예약</button>
+            <div class="item_contents" id="gnb-panel-0" aria-hidden="true">
               <ul class="list_menu">
                 <li class="item">
                   <strong class="menu_title">예약 가이드</strong>
@@ -247,7 +247,7 @@
   <main class="container" id="main">
     <section class="section_ticket">
       <div class="inner">
-        <h3 class="a11y">항공권 예약</h3>
+        <h3><span class="a11y">항공권 예약</span></h3>
         <div class="box_ticket">
           <div role="tablist" class="list_tab">
               <button type="button" id="tab_00" role="tab" class="item_tab" aria-selected="true">항공권 예매</button>
@@ -262,10 +262,10 @@
                 <a href="#" class="link_booking">마일리지 예매</a>
               </div>
               <div class="box_booking_type">
-                <input type="radio" name="tripType" id="round" class="input_booking_type" checked/>
-                <label for="round" class="label_booking_type">왕복</label>
-                <input type="radio" name="tripType" id="oneway" class="input_booking_type"/>
-                <label for="oneway" class="label_booking_type">편도</label>
+                <input type="radio" name="tripType" id="round" class="input_booking_type" checked>
+                <label for="round" class="label_booking_type" tabindex="0">왕복</label>
+                <input type="radio" name="tripType" id="oneway" class="input_booking_type">
+                <label for="oneway" class="label_booking_type" tabindex="0">편도</label>
                 <a href="#" class="link_booking_type">다구간</a>
               </div>
             </div>
@@ -319,7 +319,7 @@
     </section>
     <section class="section_benefit">
       <div class="inner">
-        <h3 class="a11y">서비스 혜택</h3>
+        <h3><span class="a11y">서비스 혜택</span></h3>
         <div class="list_benefit swiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -502,6 +502,7 @@
       </div>
     </section>
   </main>
+  <!-- footer -->
   <footer class="footer">
     <div class="inner type_gray">
       <div class="box_align">
@@ -561,35 +562,42 @@
       </div>
     </div>
     <div class="inner">
-      <address class="address">
-        <span class="company">(주) 대한항공</span>대표 : 우기홍 외 1명<i class="vertical_bar"></i>주소 : 서울특별시 강서구 하늘길 260<i class="vertical_bar"></i>전화 : 1588-2001 / 02-2656-2001<br>사업자등록번호 : 110-81-14794<i class="vertical_bar"></i>통신판매업신고 : 강서 제 16-3010<i class="vertical_bar"></i>개인정보보호책임자 : 장성현 대한항공 부사장
+      <address class="company_info">
+        <span class="company_name">(주) 대한항공</span>대표 : 우기홍 외 1명<i class="vertical_bar"></i>주소 : 서울특별시 강서구 하늘길 260<i class="vertical_bar"></i>전화 : 1588-2001 / 02-2656-2001<br>사업자등록번호 : 110-81-14794<i class="vertical_bar"></i>통신판매업신고 : 강서 제 16-3010<i class="vertical_bar"></i>개인정보보호책임자 : 장성현 대한항공 부사장
       </address>
       <small class="copyright">&copy; 1997-2024 KOREAN AIR</small>
       <div class="certification">
-        <button aria-describedby="TIP-DEL" class="tooltip">
+        <button aria-describedby="msg_isms" class="btn_isms">
           <span class="a11y">ISMS 자세히 보기</span>
-          <img src="	https://www.koreanair.com/logo__isms.png" alt>
+          <img src="https://www.koreanair.com/logo__isms.png" alt>
         </button>
-        <div id="TIP-DEL" role="tooltip" class="tooltiptext">인증범위 : 항공 티켓팅 사이트 유효기간 : 2021.12.15 ~ 2024.12.14</div>
-        <a href="#" class="btn_ccm" target="_blank" ><span class="a11y">대한항공 항공사 첫 소비자중심경영 CCM 인증 획득</span></a>
-        <a href="#" class="btn_skytrax" target="_blank"><span class="a11y">대한항공-스카이트랙스-선정-5성</span></a>
+        <div id="msg_isms" role="tooltip" class="text_tooltip">
+          <a href="#" class="btn_view" target="_blank" rel="noopener noreferrer">자세히 보기</a>c
+          인증범위 : 항공 티켓팅 사이트 유효기간 : 2021.12.15 ~ 2024.12.14
+        </div>
+        <a href="#" class="btn_ccm" target="_blank" rel="noopener noreferrer">
+          <span class="a11y">대한항공 항공사 첫 소비자중심경영 CCM 인증 획득</span>
+        </a>
+        <a href="#" class="btn_skytrax" target="_blank" rel="noopener noreferrer">
+          <span class="a11y">대한항공-스카이트랙스-선정-5성</span>
+        </a>
       </div>
     </div>
   </footer>
-  <div class="wrap_button">
-    <!-- 이벤트, 챗봇 접기 시 : wrap_button에 is_fold 클래스 추가 -->
+  <!-- 플로팅 버튼 -->
+  <!-- [D] 이벤트, 챗봇 접기 시 : box_floating에 is_fold 클래스 추가 -->
+  <section class="box_floating">
     <button type="button" class="btn btn_top"><span class="a11y">위로</span></button>
     <button type="button" class="btn btn_event"><span class="a11y">이벤트</span></button>
     <button type="button" class="btn btn_chat"><span class="a11y">상담 챗봇</span></button>
     <button type="button" class="btn btn_close"><span class="a11y">닫기</span></button>
-  </div>
-  <!-- Swiper JS -->
+  </section>
+
+  <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script
-  src="https://code.jquery.com/jquery-3.7.1.js"
-  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <script>
+    // Swiper
     var swiper = new Swiper('.list_benefit',{
       slidesPerView: 3,
       navigation: {
@@ -617,9 +625,9 @@ function eventHandler(e) {
         .attr('aria-selected', false)
 
     $targetPanel
-        .attr('hidden', false)
+        .attr('aria-hidden', false)
         .siblings('[role="tabpanel"]')
-        .attr('hidden', true)
+        .attr('aria-hidden', true)
 
 }
 
