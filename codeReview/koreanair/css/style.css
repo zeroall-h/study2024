@@ -173,11 +173,7 @@ address {
   transform: translateY(-50%);
 }
 .certification .btn_isms {
-  position: relative;
   display: inline-block;
-}
-.certification .btn_isms:hover + .text_tooltip, .certification .btn_isms:focus + .text_tooltip, .certification .btn_isms.is_active + .text_tooltip {
-  visibility: visible;
 }
 .certification .btn_ccm, .certification .btn_skytrax {
   display: inline-block;
@@ -188,33 +184,85 @@ address {
 .certification .btn_skytrax {
   background: url("https://www.koreanair.com/logo__skytrax.png");
 }
-.certification .text_tooltip {
+.certification .dialog_isms {
   position: absolute;
-  z-index: 1;
+  left: -50%;
   bottom: 100%;
-  left: 0;
   padding: 16px 40px 16px 12px;
   border-radius: 2px;
-  font-size: 14px;
-  line-height: 1.57;
-  color: #767676;
   border: 1px solid #00256c;
   background-color: #fff;
+  font-size: 12px;
+  line-height: 1.57;
+  color: #767676;
   box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  box-sizing: border-box;
 }
-.certification .text_tooltip:after {
+.certification .dialog_isms:after {
   position: absolute;
-  bottom: 0;
+  bottom: -8px;
   left: 50%;
-  width: 25px;
-  height: 11px;
-  background-image: url("https://www.koreanair.com/ring-box__edge.svg");
-  transform: translateX(-50%) rotate(180deg);
+  width: 0px;
+  height: 0px;
+  border-top: 8px solid #fff;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  transform: translateX(-50%);
   content: "";
 }
-.certification .text_tooltip .btn_view {
+.certification .dialog_isms[aria-hidden=false] {
   display: block;
-  color: red;
+}
+.certification .dialog_isms[aria-hidden=true] {
+  display: none;
+}
+.certification .dialog_isms:before {
+  position: absolute;
+  bottom: -9px;
+  left: 50%;
+  width: 0px;
+  height: 0px;
+  border-top: 9px solid #00256c;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  transform: translateX(-50%);
+  content: "";
+}
+.certification .dialog_isms .link_view {
+  display: inline-block;
+  font-size: 16px;
+  color: rgb(0, 100, 222);
+}
+.certification .dialog_isms .link_view:after {
+  display: inline-block;
+  margin-left: 4px;
+  width: 16px;
+  height: 16px;
+  background-image: url("https://www.koreanair.com/ico-link-outer.svg");
+  vertical-align: -2px;
+  content: "";
+}
+.certification .dialog_isms .dialog_close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 12px;
+  cursor: pointer;
+}
+.certification .dialog_isms .dialog_close:after {
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-image: url("https://www.koreanair.com/ring-box__close.svg");
+  background-size: 16px 16px;
+  content: "";
+}
+.certification .list_isms {
+  margin-top: 8px;
+}
+.certification .list_isms .item {
+  display: inline-block;
 }
 
 .box_sns {
