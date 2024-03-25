@@ -1,77 +1,16 @@
-@charset "utf-8";
-
-// 변수
-:root {
-  --main-color: #0064de;
-  --gray: #d9dbe1;
-  --white: #fff;
-  --skyblue: #10a1c0;
-  --darkgray: #555;
-  --lightgray: #777;
-  --bg-gray: #f3f4f8;
-}
-
-// reset 
-body,input,select,textarea,button{
-  font-family: 'Noto Sans KR', sans-serif;
-}
-ul,ol{
-  list-style: none;
-}
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,p,input,button,article,aside,footer,header,section,footer,nav,figure,main{
-  margin: 0;
-  padding: 0;
-}
-input,button,select{
-  appearance: none;
-  border: 0;
-  border-radius: 0;
-  background-color: transparent;
-}
-img,fieldset{
-  border:0;
-  vertical-align:top;
-}
-address{
-  font-style: normal;
-}
-.a11y{
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  font-size: 1px;
-  overflow: hidden;
-  opacity: 0;
-} 
 
 // common
 .inner{
   position: relative;
-  width: 1280px;
-  margin: 0 auto;
-  padding: 0 20px;
   box-sizing: border-box;
+  background-color: #fff;
 }
-
-// skip navigation
-@media (max-width: 960px) {
-  .skipToMain {
-    display: none;
-  } 
-}
-@media (min-width: 961px) {
-	.skipToMain {
-		display: block;
-		height: 1px;
-		margin-bottom: -1px;
-		overflow: hidden;
-		text-align: center;
-		line-height: 48px;
-	}
-	.skipToMain:focus{
-		height: auto;
-		margin-bottom: 0;
-	}
+@media screen and (min-width:1060px) {
+  .inner{
+    width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
 }
 
 // floating button
@@ -92,10 +31,10 @@ address{
     }
   }
   .btn{
-    width: 64px;
-    height: 64px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--gray);
     box-sizing: border-box;
     &:not(:last-child){
       margin-bottom: 10px;
@@ -103,13 +42,14 @@ address{
   }
   .btn_top{
     background: var(--white) url('../img/icon_main_top.svg') no-repeat center;
+    background-size: 24px 24px;
   }
   .btn_event{
     background-color: var(--skyblue);
     background-image: url('../img/icon-event.png'), url('../img/icon_event_txt.svg');
     background-repeat: no-repeat, no-repeat;
     background-position: 50% 100%, 50% 20%;
-    background-size: 62px, 30px;
+    background-size: 50px, 24px;
   }
   .btn_chat{
     background: var(--main-color) url('../img/icon_chatbot.png') no-repeat 50% 100% / contain;
@@ -122,7 +62,7 @@ address{
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 24px;
+      width: 20px;
       height: 2px;
       background-color: var(--white);
       transform: translate(-50%,-50%) rotate(45deg);
@@ -130,6 +70,23 @@ address{
     }
     &:after{
       transform: translate(-50%,-50%) rotate(-45deg);
+    }
+  }
+}
+@media screen and (min-width:1060px) {
+  .box_floating .btn{
+    width: 64px;
+    height: 64px;
+  }
+  .btn_top{
+    background-size: 32px 32px;
+  }
+  .btn_event{
+    background-size: 62px, 30px;
+  }
+  .btn_close{
+    &:before,&:after{
+      width: 20px;
     }
   }
 }
@@ -144,15 +101,70 @@ address{
       background-color: var(--bg-gray);
     }
   }
-  .company_info{
-    color: var(--lightgray);
-    font-size: 14px;
-    line-height: 1.58;
+}
+.btn_company{
+  position: relative;
+  display: block;
+  width: 100%;
+  padding-right: 20px;
+  text-align: left;
+  &.is_active{
+    &:after{
+      transform: rotate(0);
+    }
   }
-  .company_name{
-    margin-right: 20px;
-    color: #00256c;
-    font-weight: 700;
+  &:after{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    background-image: url('https://www.koreanair.com/snb__title--expand.svg');
+    transform: rotate(180deg);
+    content: '';
+  }
+}
+.company_info{
+  color: var(--lightgray);
+  font-size: 14px;
+  line-height: 1.58;
+}
+.company_name{
+  margin-right: 20px;
+  color: var(--dark-blue);
+  font-weight: 700;
+}
+.vertical_bar{
+  display: block;
+}
+// sitemap
+.box_align{
+}
+
+@media screen and (min-width:1060px) {
+  .box_align{
+    position: relative;
+    width: 1280px;
+    margin: 0 auto;
+    padding: 39px 20px 35px;
+    box-sizing: border-box;
+  }
+  .certification{
+    position: absolute;
+    top: 50%;
+    right: 20px;  
+    transform: translateY(-50%);
+  }
+  .btn_ccm, .btn_skytrax, .btn_isms{
+    width: 70px;
+    height: 70px;
+  }
+  .dialog_isms{
+    left: -50%;
+    &::after, &:before{
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
   .vertical_bar{
     display: inline-block;
@@ -161,110 +173,36 @@ address{
     margin: 0 8px -1px 9px;
     background: var(--gray);
   }
-  .copyright{
+}
+
+.area_sitemap{
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding-right: 26.57%;
+  .box_sitemap{
+    margin-right: 10px;
+  }
+  .title_sitemap{
+    color: var(--black);
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .list_sitemap{
+    margin-top: 15px;
+  }
+  .link_sitemap{
     display: block;
-    margin-top: 8px;
+    margin: 2px 0;
+    padding: 5px 0;
     color: var(--darkgray);
     font-size: 14px;
-    line-height: 1.58;
-  }
-}
-.certification{
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  display: flex;
-  transform: translateY(-50%);
-  .btn_isms {
-    display: inline-block;
-  }
-  .btn_ccm, .btn_skytrax{
-    display: inline-block;
-    width: 70px;
-    height: 70px;
-    background: url("https://www.koreanair.com/logo__ccm.png");
-  }
-  .btn_skytrax{
-    background: url("https://www.koreanair.com/logo__skytrax.png");
-  }
-  .dialog_isms {
-    position: absolute;
-    left: -50%;
-    bottom: 100%;
-    padding: 16px 40px 16px 12px;
-    border-radius: 2px;
-    border: 1px solid #00256c;
-    background-color: #fff;
-    font-size: 12px;
-    line-height: 1.57;
-    color: #767676;
-    box-shadow: 0 4px 6px 0 rgba(0,0,0,.1);
-    z-index: 1;
-    box-sizing: border-box;
-    &:after{
-      position: absolute;
-      bottom: -8px;
-      left: 50%;
-      width: 0px;
-      height: 0px;
-      border-top: 8px solid #fff;
-      border-left: 6px solid transparent;
-      border-right: 6px solid transparent;
-      transform: translateX(-50%);
-      content: '';
+    text-decoration: none;
+    &.bold{
+      font-weight: 700;
     }
-    &[aria-hidden='false']{
-      display: block;
-    }
-    &[aria-hidden='true']{
-      display: none;
-    }
-    &:before{
-      position: absolute;
-      bottom: -9px;
-      left: 50%;
-      width: 0px;
-      height: 0px;
-      border-top: 9px solid #00256c;
-      border-left: 7px solid transparent;
-      border-right: 7px solid transparent;
-      transform: translateX(-50%);
-      content: '';
-    }
-    .link_view{
-      display: inline-block;
-      font-size: 16px;
-      color: rgb(0, 100, 222);
-      &:after{
-        display: inline-block;
-        margin-left: 4px;
-        width: 16px;
-        height: 16px;
-        background-image: url('https://www.koreanair.com/ico-link-outer.svg');
-        vertical-align: -2px;
-        content: '';
-      }
-    }
-    .dialog_close{
-      position: absolute;
-      top: 0;
-      right: 0;
-      padding: 12px;
-      cursor: pointer;
-      &:after{
-        display: block;
-        width: 16px;
-        height: 16px;
-        background-image: url('https://www.koreanair.com/ring-box__close.svg');
-        background-size: 16px 16px;
-        content: '';
-      }
-    }
-  }
-  .list_isms {
-    margin-top: 8px;
-    .item{
-      display: inline-block;
+    &:hover{
+      text-decoration: underline;
     }
   }
 }
@@ -314,6 +252,8 @@ address{
     }
   }
 }
+
+
 .btn_view_list{
   position: relative;
   align-self: flex-end;
@@ -340,280 +280,7 @@ address{
   font-size: 28px;
   font-weight: 700;
 }
-// header
-.header{
-  width: 100%;
-  background-color: var(--white);
-  border-bottom: 1px solid var(--gray);
-  .inner{
-    height: 104px;
-  }
-  .logo{
-    position: absolute;
-    top: calc(50% + 10px);
-    left: 20px;
-    display: flex;
-    margin: auto;
-    height: 54px;
-    transform: translateY(-50%);
-    z-index: 20;
-  }
-  .logo_main{
-    display: block;
-    width: 162px;
-    height: 54px;
-    background: url("https://www.koreanair.com/logo--koreanair-pc.png") no-repeat 50%/cover;
-  }
-  .logo_skyteam{
-    display: block;
-    width: 38px;
-    height: 54px;
-    background: url("https://www.koreanair.com/logo--skyteam-pc.png") no-repeat 50%/cover;
-  }
-  .area_sign{
-    position: absolute;
-    right: 20px;
-    bottom: 10px;
-    display: flex;
-    align-items: center;
-    height: 48px;
-    z-index: 20;
-  }
-}
-.main_menu{
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  width: calc(100% - 40px);
-  justify-content: center;
-  z-index: 10;
-  .item{
-    &:hover, &:focus{
-      .item_contents{
-        display: flex;
-      }
-      .item_name:before{
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 4px;
-        width: 100%;
-        border-radius: 2px;
-        background: #00256c;
-        content: "";
-      }
-    }
-  }
-  .item_banner{
-    overflow: hidden;
-    position: relative;
-    display: block;
-    width: 275px;
-    height: 147px;
-    border-radius: 10px;
-    &+.item_banner{
-      margin-top: 18px;
-    }
-    .link_text{
-      position: absolute;
-      top: 0;
-      left: 0;
-      padding: 24px;
-      color: #000;
-      font-weight: 700;
-      font-size: 16px;
-      z-index: 10;
-      &:after{
-        position: absolute;
-        top: calc(50% + 1px);
-        right: 0;
-        width: 24px;
-        height: 24px;
-        background-image: url('https://www.koreanair.com/icon-common-right-bk.svg');
-        transform: translateY(-50%);
-        content: '';
-      }
-    }
-    img{
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-  .item_name{
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    height: 70px;
-    padding: 0 18px;
-    color: #000;
-    font-size: 18px;
-    font-weight: 700;
-    box-sizing: border-box;
-    &:after{
-      width: 20px;
-      height: 20px;
-      margin: 5px 0 0 5px;
-      background-image: url('https://www.koreanair.com/icon-arrow-gnb.svg');
-      content: '';
-    }
-  }
-  .item_contents{
-    position: absolute;
-    left: 0;
-    right: 0;
-    display: none;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1280px;
-    padding: 60px 60px 40px;
-    margin: 0 auto;
-    border-top: 1px solid var(--gray);
-    background: #f8f9fc;
-    box-sizing: border-box;
-  }
-  .menu_title{
-    display: block;
-    color: #000;
-    font-weight: 700;
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
-}
-.list_menu{
-  display: flex;
-  flex-wrap: wrap;
-  width: calc(100% - 300px);
-  .item{
-    width: 31%;
-    max-width: 275px;
-    min-height: 274px;
-    padding: 30px;
-    border-radius: 6px;
-    box-shadow: 0 2px 7px 0 rgba(0,0,0,.1);
-    margin: 0 20px 0 0;
-    background: var(--white);
-    flex: none;
-    box-sizing: border-box;
-    &:nth-child(3n){
-      margin-right: 0;
-    }
-    &:nth-child(n+4){
-      margin-top: 20px;
-    }
-  }
-  .menu_link{
-    display: inline-block;
-    outline: 0;
-    color: #555;
-    font-size: 14px;
-    text-decoration: none;
-    line-height: 18px;
-    margin: 3px 0;
-    padding: 6px 0;
-    &:hover{
-      text-decoration: underline;
-    }
-  }
-}
-.btn_search{
-  position: relative;
-  border-radius: 40px;
-  font-size: 14px;
-  min-height: 36px;
-  padding-left: 16px;
-  padding-right: 36px;
-  text-align: left;
-  border: none;
-  color: #767676;
-  background: #f3f4f8;
-  cursor: pointer;
-  .search_text{
-    margin-right: 16px;
-  }
-  &:before{
-    position: absolute;
-    top: 50%;
-    right: 16px;
-    width: 20px;
-    height: 20px;
-    background-image: url('https://www.koreanair.com/icon-util--search-link.svg');
-    transform: translateY(-50%);
-    content: '';
-  }
-}
-.link_login{
-  display: inline-flex;
-  align-items: center;
-  height: 27px;
-  margin-left: 10px;
-  padding: 3px 12px 4px;
-  background: #00256c;
-  border-radius: 15px;
-  font-size: 14px;
-  text-decoration: none;
-  color: var(--white);
-  font-weight: 700;
-  box-sizing: border-box;
-}
-.sub_menu{
-  position: absolute;
-  top: 0;
-  right: 20px;
-  padding: 14px 0 13px;
-  .link{
-    font-size: 13px;
-    text-decoration: none;
-    color: #000;
-    &:not(:first-child){
-      margin-left: 24px;
-    }
-    &:before{
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      margin-right: 4px;
-      vertical-align: middle;
-      content: '';
-    }
-    &_event{
-      &:before{
-        background: url('https://www.koreanair.com/icon-common-16-x-16-event.svg') center;
-      }
-    }
-    &_question{
-      &:before{
-        background: url('https://www.koreanair.com/icon-common-16-x-16-customer.svg') center;
-      }
-    }
-    &_join{
-      &:before{
-        background: url('	https://www.koreanair.com/icon--join.svg') center;
-      }
-    }
-  }
-}
-.btn_lang{
-  margin-left: 24px;
-  padding: 0;
-  font-size: 13px;
-  color: #000;
-  cursor: pointer;
-  &:before{
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    margin-right: 4px;
-    vertical-align: middle;
-    background: url('https://www.koreanair.com/flag-country.jpg') 0 -3px / 16px;
-    content: '';
-  }
-}
-.skip{
-  display: none;
-}
+
 
 
 // 스와이퍼 영역
@@ -808,171 +475,20 @@ address{
   }
 }
 
-// 여행의 완성을 위한 경험
-.section_category{
-  background-color: #d0e7f6;
-  .inner{
-    padding: 50px 20px;
-    background-color: #d0e7f6;
-    transition: .3s;
-    transition-timing-function: ease-out;
-    &.is_active{
-      transition: .3s;
-      transition-timing-function: ease-out;
-      padding-bottom: 100px;
-    }
-  }
-}
-.list_category{
-  display: flex;
-  align-items: flex-start;
-  margin-top: 30px;
-}
-.item_category{
-  position: relative;
-  width: 100%;
-  text-align: center;
-  img{
-    display: block;
-    width: 48px;
-    height: 48px;
-    margin: 15px auto 0;
-  }
-  &:not(:first-child){
-    margin-left: 20px;
-  }
-  &:after{
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 125%;
-    content: "";
-  }
-  &:hover{
-    .box_link{
-      display: flex;
-    }
-  }
+@media screen and (min-width:1060px) {
 
-  .box_link{
-    position: absolute;
-    left: 50%;
-    top: calc(100% + 18px);
-    display: none;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    padding: 5px 10px;
-    transform: translateX(-50%);
-    box-sizing: border-box;
-    &:before{
-      position: absolute;
-      top: -8px;
-      left: 50%;
-      width: 0px;
-      height: 0px;
-      border-bottom: 8px solid rgba(255, 255, 255, 0.8);
-      border-left: 6px solid transparent;
-      border-right: 6px solid transparent;
-      transform: translateX(-50%);
-      content: '';
-    }
-  }
-  .link_experience{
-    position: relative;
-    display: block;
-    width: 100%;
-    padding: 10px;
-    text-decoration: none;
-    font-size: 14px;
-    color: #222;
-    white-space: nowrap;
-    box-sizing: border-box;
-    &+.link_experience{
-      margin-left: -10px;
-      &:before{
-        display: inline-block;
-        width: 1px;
-        height: 100%;
-        margin-right: 10px;
-        background-color: var(--gray);
-        vertical-align: middle;
-        content: '';
-      }
-    }
-    &:hover{
-      text-decoration: underline;
-    }
-  }
-  .btn_category{
-    width: 100%;
-    padding: 18px;
-    color: #000;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, .5);
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1.64;
-    font-family: 'Noto sans KR';
-    box-sizing: border-box;
-     &:hover{
-      background-color: rgba(255,255,255,.8);
-      &+.box_link{
-        display: flex;
-      }
-    }
-  }
 }
 
 
-// sitemap
-.box_align{
-  position: relative;
-  width: 1280px;
-  margin: 0 auto;
-  padding: 39px 20px 35px;
-  box-sizing: border-box;
-}
-.area_sitemap{
-  display: flex;
-  justify-content: space-between;
-
-  padding-right: 100px;
-  box-sizing: border-box;
-  padding-right: 26.57%;
-  .box_sitemap{
-    margin-right: 10px;
-  }
-  .title_sitemap{
-    color: #000;
-    font-weight: 700;
-    font-size: 16px;
-  }
-  .list_sitemap{
-    margin-top: 15px;
-  }
-  .link_sitemap{
-    display: block;
-    margin: 2px 0;
-    padding: 5px 0;
-    color: #555;
-    font-size: 14px;
-    text-decoration: none;
-    &.bold{
-      font-weight: 700;
-    }
-    &:hover{
-      text-decoration: underline;
-    }
-  }
-}
 
 
 
 
 // section_ticket
+
 .section_ticket{
   padding: 80px 0;
-  background-image: url('https://www.koreanair.com/wwwupload/maincontents/quickbooking/mainopen.jpg');
+  background-image: url('../img/mainopen.jpg');
   background-position: center top;
   background-size: cover;
 }
@@ -1050,7 +566,7 @@ address{
     min-height: 34px;
     margin: -1px;
     padding: 2px 24px;
-    background-color: #00256c;
+    background-color: var(--dark-blue);
     border-radius: 32px;
     font-size: 16px;
     font-weight: 700;
@@ -1064,7 +580,7 @@ address{
     padding: 2px 18px;
     border-radius: 32px;
     padding: 2px 24px;
-    color: #00256c;
+    color: var(--dark-blue);
     text-decoration: none;
   }
 }
@@ -1083,7 +599,7 @@ address{
   .input_booking_type{
     &:checked{
       &+.label_booking_type{
-        color: #00256c;
+        color: var(--dark-blue);
         font-weight: 700;
         &:after{
           position: absolute;
@@ -1160,7 +676,7 @@ address{
     min-height: 48px;
     padding: 0 20px;
     border-radius: 12px;
-    background: #00256c;
+    background: var(--dark-blue);
     color: var(--white);
     font-size: 16px;
     cursor: pointer;
@@ -1206,7 +722,7 @@ address{
       }
     }
     .title_schedule{
-      color: #767676;
+      color: var(--lightgray);
       font-size: 14px;
       line-height: 1.58;
       margin-top: 3px;
@@ -1215,10 +731,10 @@ address{
     .btn_schedule{
       position: relative;
       width: 100%;
-      color: #767676;
+      color: var(--lightgray);
       appearance: none;
       padding: 9px 0;
-      border-bottom: 0.1rem solid #767676;
+      border-bottom: 0.1rem solid var(--lightgray);
       &:before{
         position: absolute;
         right: 0;
@@ -1233,7 +749,7 @@ address{
     .text_schedule{
       display: flex;
       align-items: center;
-      color: #767676;
+      color: var(--lightgray);
       font-size: 16px;
     }
   }
@@ -1245,4 +761,12 @@ address{
     height: 100%;
     object-fit: cover;
   }
+}
+
+
+@media screen and (min-width:768px) and (max-width: 1059px) {
+
+}
+@media screen and (min-width:1060px) {
+
 }

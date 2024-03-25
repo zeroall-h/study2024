@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>대한항공 메인</title>
-  <link rel="stylesheet" href="./css/reset.css">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/style.css">
+
+  <!-- 히어로 이미지 미리 로드 -->
+  <link rel="preload" as="image" media="(max-width:1059px)" href="https://naradesign.github.io/html5/img/small.avif">
+  <link rel="preload" as="image" media="(max-width:1059px)" href="https://naradesign.github.io/html5/img/small.avif">
+  <link rel="preload" as="image" media="(min-width:1060px)" href="https://www.koreanair.com/wwwupload/maincontents/quickbooking/mainopenimg_mo.jpg">
 </head>
 <body>
-  <a href="#main" class="skipToMain">메뉴 건너뛰기</a>
+
   <header class="header">
     <div class="inner">
       <div class="logo">
@@ -255,7 +250,7 @@
               <button type="button" id="tab_02" role="tab" class="item_tab" aria-selected="false">체크인</button>
               <button type="button" id="tab_03" role="tab" class="item_tab" aria-selected="false">출도착 조회</button>
           </div>
-          <div role="tabpanel" aria-labelledby="tab_00" class="tabpanel">
+          <div role="tabpanel" aria-labelledby="tab_00" id="tab_00" class="tabpanel">
             <div class="area_booking">
               <div class="box_booking">
                 <button type="button" class="btn_booking">예매</button>
@@ -306,13 +301,53 @@
             </div>
           </div>
           <div role="tabpanel" aria-labelledby="tab_01" class="tabpanel" hidden>
-            두번째 컨텐츠
+            <label for="resevation_000">예약번호 또는 항공권번호</label>
+            <input type="text" id="resevation_000">
+            <label for="resevation_001">출발일</label>
+            <button type="button"></button>
+            <label for="resevation_002">승객 성</label>
+            <input type="text" id="resevation_002">
+            <label for="resevation_003">승객 이름</label>
+            <input type="text" id="resevation_003">
           </div>
           <div role="tabpanel" aria-labelledby="tab_02" class="tabpanel" hidden>
             두 번째 컨텐츠
           </div>
           <div role="tabpanel" aria-labelledby="tab_03" class="tabpanel" hidden>
-            두 번째 컨텐츠
+            <div class="area_booking">
+              <div class="box_booking">
+                <button type="button" class="btn_booking">출도착 조회</button>
+                <a href="#" class="link_booking">주간 스케줄</a>
+              </div>
+              <div class="box_booking_type">
+                <input type="radio" name="tripType" id="round" class="input_booking_type" checked>
+                <label for="round" class="label_booking_type" tabindex="0">출/도착지</label>
+                <input type="radio" name="tripType" id="oneway" class="input_booking_type">
+                <label for="oneway" class="label_booking_type" tabindex="0">편명</label>
+              </div>
+            </div>
+            <div class="area_schedule">
+              <div class="box_time">
+                <button type="button" class="btn_time departure">From
+                  <span class="text_time">출발지</span>
+                </button>
+                <!-- [D] 경로 변경 가능할 시, btn_change 에 is_active 클래스 추가-->
+                <button type="button" class="btn_change">
+                  <span class="a11y">출발 도착 바꾸기</span>
+                </button>
+                <button type="button" class="btn_time arrival">To
+                  <span class="text_time">도착지</span>
+                </button>
+              </div>
+              <!-- [D] 탑승객, 출발일, 좌석등급 선택 완료 시, box_schedule에 is_active 클래스 추가 -->
+              <div class="box_schedule departure is_active">
+                <em class="title_schedule">출발일</em>
+                <button type="button" class="btn_schedule calendar">
+                  <span class="text_schedule">2024년 03월 11일</span>
+                </button>
+              </div>
+              <button type="button" class="btn_find">조회</button>
+            </div>
           </div>
       </div>
       </div>
@@ -563,35 +598,35 @@
     </div>
     <div class="inner">
       <address class="company_info">
-        <span class="company_name">(주) 대한항공</span>대표 : 우기홍 외 1명<i class="vertical_bar"></i>주소 : 서울특별시 강서구 하늘길 260<i class="vertical_bar"></i>전화 : 1588-2001 / 02-2656-2001<br>사업자등록번호 : 110-81-14794<i class="vertical_bar"></i>통신판매업신고 : 강서 제 16-3010<i class="vertical_bar"></i>개인정보보호책임자 : 장성현 대한항공 부사장
+        <i class="vertical_bar"></i>주소 : 서울특별시 강서구 하늘길 260<i class="vertical_bar"></i>전화 : 1588-2001 / 02-2656-2001<br>사업자등록번호 : 110-81-14794<i class="vertical_bar"></i>통신판매업신고 : 강서 제 16-3010<i class="vertical_bar"></i>개인정보보호책임자 : 장성현 대한항공 부사장
+        <div class="certification">
+          <button type="button" class="btn_isms" aria-haspopup="dialog">
+            <span class="a11y">ISMS 자세히 보기</span>
+            <img src="https://www.koreanair.com/logo__isms.png" alt>
+          </button>
+          <div role="dialog" class="dialog_isms" aria-hidden="true">
+            <a href="#" class="link_view" target="_blank" rel="noopener noreferrer" id="dialog_isms">자세히 보기</a>
+            <dl class="list_isms">
+              <div>
+                <dt class="item">인증범위 :</dt>
+                <dd class="item">항공 티켓팅</dd>
+              </div>
+              <div>
+                <dt class="item">사이트 유효기간 :</dt>
+                <dd class="item">2021.12.15 ~ 2024.12.14</dd>
+              </div>
+            </dl>
+            <button type="button" class="dialog_close"><span class="a11y">닫기</span></button>
+          </div>
+          <a href="#" class="btn_ccm" target="_blank" rel="noopener noreferrer">
+            <span class="a11y">대한항공 항공사 첫 소비자중심경영 CCM 인증 획득</span>
+          </a>
+          <a href="#" class="btn_skytrax" target="_blank" rel="noopener noreferrer">
+            <span class="a11y">대한항공-스카이트랙스-선정-5성</span>
+          </a>04
+        </div>
       </address>
       <small class="copyright">&copy; 1997-2024 KOREAN AIR</small>
-      <div class="certification">
-        <button type="button" class="btn_isms" aria-haspopup="dialog">
-          <span class="a11y">ISMS 자세히 보기</span>
-          <img src="https://www.koreanair.com/logo__isms.png" alt>
-        </button>
-        <div role="dialog" class="dialog_isms" aria-hidden="true">
-          <a href="#" class="link_view" target="_blank" rel="noopener noreferrer" id="dialog_isms">자세히 보기</a>
-          <dl class="list_isms">
-            <div>
-              <dt class="item">인증범위 :</dt>
-              <dd class="item">항공 티켓팅</dd>
-            </div>
-            <div>
-              <dt class="item">사이트 유효기간 :</dt>
-              <dd class="item">2021.12.15 ~ 2024.12.14</dd>
-            </div>
-          </dl>
-          <button type="button" class="dialog_close"><span class="a11y">닫기</span></button>
-        </div>
-        <a href="#" class="btn_ccm" target="_blank" rel="noopener noreferrer">
-          <span class="a11y">대한항공 항공사 첫 소비자중심경영 CCM 인증 획득</span>
-        </a>
-        <a href="#" class="btn_skytrax" target="_blank" rel="noopener noreferrer">
-          <span class="a11y">대한항공-스카이트랙스-선정-5성</span>
-        </a>
-      </div>
     </div>
   </footer>
   <!-- 플로팅 버튼 -->
@@ -609,7 +644,7 @@
   <script>
     // Swiper
     var swiper = new Swiper('.list_benefit',{
-      slidesPerView: 3,
+      slidesPerView: 1.5,
       navigation: {
         nextEl : '.benefit-button-next',
         prevEl : '.benefit-button-prev'
@@ -635,14 +670,29 @@ function eventHandler(e) {
         .attr('aria-selected', false)
 
     $targetPanel
-        .attr('aria-hidden', false)
+        .attr('hidden', false)
         .siblings('[role="tabpanel"]')
-        .attr('aria-hidden', true)
+        .attr('hidden', true)
+
+}
+function eventHandler2(e) {
+  var $eTarget = $(e.currentTarget);
+  var $targetPanel = $('[id="' + $eTarget.attr('aria-labelledby') + '"]');
+    $eTarget
+        .attr('aria-expanded', true)
+        .siblings('[role="tab"]')
+        .attr('aria-selected', false)
+
+    $targetPanel
+        .attr('hidden', false)        
+        .siblings('[role="tabpanel"]')
+        .attr('hidden', true)
 
 }
 
 // 이벤트 바인딩 - 이벤트와, 실행될 함수를 연결해줌
 $('[role="tab"]').on('click', eventHandler);
+$('.btn_company').on('click', eventHandler2);
 
 var welTooltipOpen = $('.btn_isms');
 
@@ -653,6 +703,7 @@ welTooltipOpen.on('click', function(){
 $('.dialog_close').on('click',function(){
   $('.dialog_isms').attr('aria-hidden', true);
 })
+
 
   </script>
 </body>

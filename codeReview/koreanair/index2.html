@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>항공권 예약 및 여행 정보 | 대한항공</title>
+  <link rel="preload" as="style" href="./css/common.min.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="./css/page.min.css" onload="this.onload=null;this.rel='stylesheet'">
+</head>
+<body>
+  <!-- Skip navigation -->
+  <a href="#main" class="skipToMain">메뉴 건너뛰기</a>
+  <!-- header -->
+  <header class="header">
+    <div class="inner">
+      <div class="box_logo">
+        <a class="logo_main" href="#"><h1 class="a11y">Korean Air</h1></a>
+        <a class="logo_skyteam" href="#" target="_blank"><h2 class="a11y">Sky Team</h2></a>
+      </div>
+      <div class="sub_menu">
+        <a href="#" class="link link_event">이벤트</a>
+        <a href="#" class="link link_question">자주 묻는 질문</a>
+        <button type="button" class="btn_lang">
+          <strong class="a11y">지역 언어 선택</strong>
+          <span class="lang">대한민국 - 한국어</span>
+        </button>
+        <a href="#" class="link link_join">회원가입</a>
+      </div>
+      <div class="area_sign">
+        <button type="button" class="btn_search"><span class="search_text">궁금한 것을 검색해 보세요</span></button>
+        <a href="#" class="link_login">로그인</a>
+      </div>
+      <nav class="gnb"> 
+        <ul class="main_menu">
+          <li class="item">
+            <button type="button" class="item_name" id="gnb-0" aria-expanded="false" aria-controls="gnb-panel-0">예약</button>
+            <div class="item_contents" id="gnb-panel-0" aria-hidden="true">
+              <ul class="list_menu">
+                <li class="item">
+                  <strong class="menu_title">예약 가이드</strong>
+                  <ul class="list_menu_link">
+                    <li><a href="#" class="menu_link">운임 안내</a></li>
+                    <li><a href="#" class="menu_link">좌석 승급</a></li>
+                    <li><a href="#" class="menu_link">변경 및 환불</a></li>
+                    <li><a href="#" class="menu_link">온라인 결제</a></li>
+                    <li><a href="#" class="menu_link">기프트카드</a></li>
+                  </ul>
+                </li>
+                <li class="item">
+                  <strong class="menu_title">부가 서비스</strong>
+                  <ul class="list_menu_link">
+                    <li><a href="#" class="menu_link">대한항공 서비스</a></li>
+                    <li><a href="#" class="menu_link">제휴 서비스</a></li>
+                  </ul>
+                </li>
+                <li class="item">
+                  <strong class="menu_title">유용한 정보</strong>
+                  <ul class="list_menu_link">
+                    <li><a href="#" class="menu_link">보너스 좌석 상황 보기</a></li>
+                    <li><a href="#" class="menu_link">운항 노선도</a></li>
+                    <li><a href="#" class="menu_link">공동운항</a></li>
+                    <li><a href="#" class="menu_link">환성 전용 내항기</a></li>
+                    <li><a href="#" class="menu_link">지도로 찾는 항공권</a></li>
+                    <li><a href="#" class="menu_link">동영상 가이드</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <div class="meun_banners">
+                <a href="#" class="item_banner">
+                  <span class="link_text">항공권 예매하러 가기</span>
+                  <img src="https://picsum.photos/seed/picsum/500/300" alt>
+                </a>
+                <a href="#" class="item_banner">
+                  <span class="link_text">보너스 좌석 상황 보기</span>
+                  <img src="https://picsum.photos/seed/picsum/500/300" alt>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="item">
+            <button type="button" class="item_name">공항</button>
+            <div class="item_contents">
+              <ul class="list_menu">
+                <li class="item">
+                  <strong class="menu_title">체크인</strong>
+                  <ul class="list_menu_link">
+                    <li><a href="#" class="menu_link">사전 체크인</a></li>
+                    <li><a href="#" class="menu_link">공항 체크인</a></li>
+                  </ul>
+                </li>
+                <li class="item">
+                  <strong class="menu_title">탑승 절차</strong>
+                  <ul class="list_menu_link">
+                    <li><a href="#" class="menu_link">탑승 절차 안내</a></li>
+                    <li><a href="#" class="menu_link">SkyPriority</a></li>
+                    <li><a href="#" class="menu_link">출입국 규정 정보</a></li>
+                  </ul>
+                </li>
+                <li class="item">
+                  <strong class="menu_title">공항 이용 가이드</strong>
+                  <ul class="list_menu_link">
+                    <li><a href="#" class="menu_link">인천국제공항</a></li>
+                    <li><a href="#" class="menu_link">취항지 공항 정보</a></li>
+                    <li><a href="#" class="menu_link">KAL 라운지</a></li>
+                  </ul>
+                </li>
+                <li class="item">
+                  <strong class="menu_title">수하물</strong>
+                  <ul class="list_menu_link">
+                    <li><a href="#" class="menu_link">수하물 안내</a></li>
+                    <li><a href="#" class="menu_link">운송 제한 물품</a></li>
+                    <li><a href="#" class="menu_link">휴대 수하물</a></li>
+                    <li><a href="#" class="menu_link">위탁 수하물</a></li>
+                    <li><a href="#" class="menu_link">지연, 파손 및 유실물</a></li>
+                  </ul>
+                </li>
+                <li class="item">
+                  <strong class="menu_title">도움이 필요한 승객</strong>
+                  <ul class="list_menu_link">
+                    <li><a href="#" class="menu_link">한가족 서비스</a></li>
+                    <li><a href="#" class="menu_link">유아 동반 승객</a></li>
+                    <li><a href="#" class="menu_link">혼자 여행하는 어린이</a></li>
+                    <li><a href="#" class="menu_link">몸이 불편한 승객</a></li>
+                    <li><a href="#" class="menu_link">임신 중인 승객</a></li>
+                    <li><a href="#" class="menu_link">반려동물 동반 승객</a></li>
+                  </ul>
+                </li>
+                <li class="item">
+                  <strong class="menu_title">엑설런트 프로그램</strong>
+                  <ul class="list_menu_link">
+                    <li><a href="#" class="menu_link">엑설런트 보딩패스</a></li>
+                    <li><a href="#" class="menu_link">엑설런트 트랜짓 프로그램</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <div class="meun_banners">
+                <a href="#" class="item_banner">
+                  <span class="link_text">KAL 라운지</span>
+                  <img src="https://picsum.photos/seed/picsum/500/300" alt>
+                </a>
+                <a href="#" class="item_banner">
+                  <span class="link_text">출입국 규정 조회</span>
+                  <img src="https://picsum.photos/seed/picsum/500/300" alt="">
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="item">
+            <button type="button" class="item_name">기내</button>
+            <div class="item_contents">
+              <ul class="list_menu">
+                <li class="item">
+                  <strong class="menu_title">클래스별 서비스</strong>
+                  <ul class="list_menu_link">
+                    <li><a href="#" class="menu_link">일등석</a></li>
+                    <li><a href="#" class="menu_link">프레스티지석</a></li>
+                    <li><a href="#" class="menu_link">일반석</a></li>
+                  </ul>
+                </li>
+                <li class="item">
+                  <strong class="menu_title">기내 서비스</strong>
+                  <ul class="list_menu_link">
+                    <li><a href="#" class="menu_link">서비스 순서</a></li>
+                    <li><a href="#" class="menu_link">기내식</a></li>
+                    <li><a href="#" class="menu_link">기내 면세품</a></li>
+                    <li><a href="#" class="menu_link">기내 여행 가이드</a></li>
+                    <li><a href="#" class="menu_link">기내 엔터테인먼트</a></li>
+                    <li><a href="#" class="menu_link">기내 와이파이</a></li>
+                  </ul>
+                </li>
+                <li class="item">
+                  <strong class="menu_title">항공기 안내</strong>
+                  <ul class="list_menu_link">
+                    <li><a href="#" class="menu_link">보잉 787</a></li>
+                    <li><a href="#" class="menu_link">보잉 777</a></li>
+                    <li><a href="#" class="menu_link">보잉 747</a></li>
+                    <li><a href="#" class="menu_link">보잉 737</a></li>
+                    <li><a href="#" class="menu_link">에어버스 A380</a></li>
+                    <li><a href="#" class="menu_link">에어버스 A380</a></li>
+                    <li><a href="#" class="menu_link">에어버스 A380</a></li>
+                    <li><a href="#" class="menu_link">에어버스 A380</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <div class="meun_banners">
+                <a href="#" class="item_banner">
+                  <span class="link_text">기내식 메뉴 조회</span>
+                  <img src="https://picsum.photos/seed/picsum/500/300" alt>
+                </a>
+                <a href="#" class="item_banner">
+                  <span class="link_text">기내 엔터테인먼트</span>
+                  <img src="https://picsum.photos/seed/picsum/500/300" alt="">
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="item">
+            <button type="button" class="item_name">스카이패스</button>
+            <div class="item_contents">
+              <ul class="list_menu">
+                <li class="item">
+                  <strong class="menu_title">스카이패스 소개</strong>
+                  <ul class="list_menu_link">
+                    <li><a href="#" class="menu_link">회원 혜택</a></li>
+                    <li><a href="#" class="menu_link">가족 마일리지</a></li>
+                    <li><a href="#" class="menu_link">제휴사 할인</a></li>
+                    <li><a href="#" class="menu_link">스카이팀 공동 혜택</a></li>
+                  </ul>
+                </li>
+                <li class="item">
+                  <strong class="menu_title">마일리지 적립</strong>
+                  <ul class="list_menu_link">
+                    <li><a href="#" class="menu_link">대한항공</a></li>
+                    <li><a href="#" class="menu_link">신용카드</a></li>
+                    <li><a href="#" class="menu_link">여행과 라이프</a></li>
+                    <li><a href="#" class="menu_link">제휴 항공사</a></li>
+                    <li><a href="#" class="menu_link">탑승 후 적립 안내</a></li>
+                  </ul>
+                </li>
+                <li class="item">
+                  <strong class="menu_title">마일리지 사용</strong>
+                  <ul class="list_menu_link">
+                    <li><a href="#" class="menu_link">대한항공 보너스</a></li>
+                    <li><a href="#" class="menu_link">제휴 항공사 보너스</a></li>
+                    <li><a href="#" class="menu_link">마일리지 몰</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <div class="meun_banners">
+                <a href="#" class="item_banner">
+                  <span class="link_text">보너스 핫픽</span>
+                  <img src="https://www.koreanair.com/wwwupload/maincontents/gnb/hotpick_pc.png" alt>
+                </a>
+                <a href="#" class="item_banner">
+                  <span class="link_text">마일리지 몰</span>
+                  <img src="https://www.koreanair.com/wwwupload/maincontents/gnb/mall_pc.png" alt="">
+                </a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <button type="button" class="btn_menu" aria-haspopup="dialog" aria-controls="dialog_search" aria-expanded="false"><span class="a11y">메뉴 열기</span></button>
+    </div>
+  </header>
+  <main class="container">
+    <section class="section_category">
+      <div class="inner type_skyblue">
+        <div class="box_title">
+          <h3 class="title">여행의 완성을 위한 경험</h3>
+        </div>
+        <ul class="list_category">
+          <li class="item_category">
+            <button type="button" class="btn_category">호텔<img src="https://www.koreanair.com/wwwupload/maincontents/completejourney/masl__hotel-pc.png" alt></button>
+            <div class="box_link">
+              <a href="#" class="link_experience">아고다</a>
+              <a href="#" class="link_experience">Hotels.com</a>
+            </div>
+          </li>
+          <li class="item_category">
+            <button type="button" class="btn_category">렌터카<img src="https://www.koreanair.com/wwwupload/maincontents/completejourney/masl__hotel-pc.png" alt></button>
+            <div class="box_link">
+              <a href="#" class="link_experience">Hertz</a>
+              <a href="#" class="link_experience">SK렌터카</a>
+              <a href="#" class="link_experience">롯데렌터카</a>
+              <a href="#" class="link_experience">Rentalcars.com</a>
+            </div>
+          </li>
+          <li class="item_category">
+            <button type="button" class="btn_category">기내 면세점<img src="https://www.koreanair.com/wwwupload/maincontents/completejourney/masl__duty-free-pc.png" alt></button>
+            <div class="box_link">
+              <a href="#" class="link_experience">SkyShop</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- footer -->
+  <footer class="footer">
+    <div class="wrap_sitemap">
+      <section class="area_sitemap">
+        <div class="box_sitemap">
+          <h3 class="title_sitemap" aria-expanded="true">회사소개</h3>
+          <ul class="list_sitemap">
+            <li><a href="#" class="link_sitemap">대한항공에 대하여</a></li>
+            <li><a href="#" class="link_sitemap">기업지배구조</a></li>
+            <li><a href="#" class="link_sitemap">투자정보</a></li>
+            <li><a href="#" class="link_sitemap">지속가능경영</a></li>
+            <li><a href="#" class="link_sitemap">뉴스룸</a></li>
+          </ul>
+        </div>
+        <div class="box_sitemap">
+          <h3 class="title_sitemap">고객지원</h3>
+          <ul class="list_sitemap">
+            <li><a href="#" class="link_sitemap">공지사항</a></li>
+            <li><a href="#" class="link_sitemap">고객의 말씀</a></li>
+            <li><a href="#" class="link_sitemap">서비스 센터</a></li>
+            <li><a href="#" class="link_sitemap">e-서식함</a></li>
+            <li><a href="#" class="link_sitemap">웹 접근성</a></li>
+          </ul>
+        </div>
+        <div class="box_sitemap">
+          <h3 class="title_sitemap">약관 및 규정</h3>
+          <ul class="list_sitemap">
+            <li><a href="#" class="link_sitemap bold">개인정보 처리방침</a></li>
+            <li><a href="#" class="link_sitemap">이용약관</a></li>
+            <li><a href="#" class="link_sitemap">운송약관 및 고지사항</a></li>
+            <li><a href="#" class="link_sitemap">소비자 안전 관련 정보</a></li>
+            <li><a href="#" class="link_sitemap">운임 및 서비스 요금표</a></li>
+          </ul>
+        </div>
+        <div class="box_sitemap">
+          <h3 class="title_sitemap">기타 안내</h3>
+          <ul class="list_sitemap">
+            <li><a href="#" class="link_sitemap">기업 출장 여행</a></li>
+            <li><a href="#" class="link_sitemap">고객 안내 서비스</a></li>
+            <li><a href="#" class="link_sitemap">항공교통이용자 서비스 계획</a></li>
+            <li><a href="#" class="link_sitemap">항공교통이용자 피해 구제</a></li>
+            <li><a href="#" class="link_sitemap">관련 사이트</a></li>
+            <li><a href="#" class="link_sitemap">사이트맵</a></li>
+          </ul>
+        </div>
+      </section>
+      <div class="box_pr">
+        <div class="box_download">
+          <a href="#" class="item_sns google"><span class="a11y">구글 플레이</span></a>
+          <a href="#" class="item_sns apple"><span class="a11y">애플 스토어</span></a>
+        </div>
+        <div class="box_sns">
+          <a href="#" class="item_sns youtube"><span class="a11y">유튜브</span></a>
+          <a href="#" class="item_sns instagram"><span class="a11y">인스타그램</span></a>
+          <a href="#" class="item_sns facebook"><span class="a11y">페이스북</span></a>
+          <a href="#" class="item_sns twitter"><span class="a11y">twitter</span></a>
+        </div>
+        <div class="img_pr">
+          <img src="https://www.koreanair.com/assets/images/banner-visitkorea.svg" alt="VISIT KOREA YEAR 2023 to 2024">
+        </div>
+      </div>
+    </div>
+    <div class="inner">
+      <small class="copyright">&copy; 1997-2024 KOREAN AIR</small>
+      <div class="box_award">
+        <a href="#" class="link_award tripadvisor" target="_blank" rel="noopener noreferrer">
+          <span class="a11y">트립어드바이저 선정 세계 10대 항공사</span>
+        </a>
+        <a href="#" class="link_award skytrax" target="_blank" rel="noopener noreferrer">
+          <span class="a11y">스카이트랙스 선정 5성 항공사</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+    <!-- search -->
+    <div class="dialog_search" id="dialog_search" role="dialog" style="display: none;">
+      <strong>검색</strong>
+      <input type="text">
+      <div class="page_previous">
+        button
+      </div>
+      <div class="page_search">
+        <em>인기 검색어</em>
+        <button>#마일리지</button>
+        <button>#사전 좌석 배정</button>
+      </div>
+    </div>
+    <!-- mobile_menu -->
+    <div class="dialog_search" id="dialog_search" role="dialog" style="display: none;">
+      <strong>검색</strong>
+      <input type="text">
+      <div class="page_previous">
+        button
+      </div>
+      <div class="page_search">
+        <em>인기 검색어</em>
+        <button>#마일리지</button>
+        <button>#사전 좌석 배정</button>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      // Swiper
+      var swiper = new Swiper('.list_benefit',{
+        slidesPerView: 1.5,
+        navigation: {
+          nextEl : '.benefit-button-next',
+          prevEl : '.benefit-button-prev'
+        },
+        spaceBetween: 30,
+      })
+
+      $('.main_menu .item').on('mouseenter click mouseleave',function(){
+        $(this).addClass('is_active').siblings().removeClass('is_active')
+      })
+      $('.main_menu .item').on('mouseleave',function(){
+        $(this).removeClass('is_active')
+      })
+
+
+      if($(window).width() < 1060){
+        $('.nav').attr('tabindex','0')
+        $('.nav').attr('aria-haspopup','dialog')
+      } else {
+        $('.nav').removeAttr('tabindex')
+        $('.nav').removeAttr('aria-haspopup')
+      }
+
+      $(window).resize(function(){
+        if($(window).width() < 1060){
+        $('.nav').attr('tabindex','0')
+        $('.nav').attr('aria-haspopup','dialog')
+      } else {
+        $('.nav').removeAttr('tabindex')
+        $('.nav').removeAttr('aria-haspopup')
+      }
+      })
+
+          // Swiper
+    var swiper = new Swiper('.list_benefit',{
+      slidesPerView: 1.5,
+      navigation: {
+        nextEl : '.benefit-button-next',
+        prevEl : '.benefit-button-prev'
+      },
+      spaceBetween: 30,
+    })
+
+    $('.item_category').on('mouseenter',function(){
+      var idx=$(this).index()
+      $('.section_category .inner').addClass('is_active');
+      $('.section_category .inner .btn_category').eq(idx).addClass('is_active')
+    })
+    $('.item_category').on('mouseleave',function(){
+      $('.section_category .inner').removeClass('is_active')
+      $('.section_category .inner .btn_category').removeClass('is_active')
+    })
+
+    // 이벤트 핸들러 - 이벤트 발생시 동작할 함수
+function eventHandler(e) {
+  var $eTarget = $(e.currentTarget);
+  var $targetPanel = $('[aria-labelledby="' + $eTarget.attr('id') + '"]');
+    $eTarget
+        .attr('aria-selected', true)
+        .siblings('[role="tab"]')
+        .attr('aria-selected', false)
+
+    $targetPanel
+        .attr('hidden', false)
+        .siblings('[role="tabpanel"]')
+        .attr('hidden', true)
+
+}
+function eventHandler2(e) {
+  var $eTarget = $(e.currentTarget);
+  var $targetPanel = $('[id="' + $eTarget.attr('aria-labelledby') + '"]');
+    $eTarget
+        .attr('aria-expanded', true)
+        .siblings('[role="tab"]')
+        .attr('aria-selected', false)
+
+    $targetPanel
+        .attr('hidden', false)        
+        .siblings('[role="tabpanel"]')
+        .attr('hidden', true)
+
+}
+
+// 이벤트 바인딩 - 이벤트와, 실행될 함수를 연결해줌
+$('[role="tab"]').on('click', eventHandler);
+$('.btn_company').on('click', eventHandler2);
+
+
+    </script>
+    
+</body>
+</html>
