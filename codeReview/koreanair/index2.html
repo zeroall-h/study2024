@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>항공권 예약 및 여행 정보 | 대한항공</title>
   <link rel="preload" as="style" href="./css/common.min.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="preload" as="style" href="./css/page.min.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="./css/page.css" onload="this.onload=null;this.rel='stylesheet'">
 </head>
 <body>
   <!-- Skip navigation -->
@@ -247,6 +248,308 @@
     </div>
   </header>
   <main class="container">
+    <section class="section_ticket">
+      <div class="inner">
+        <h3><span class="a11y">항공권 예약</span></h3>
+        <div class="box_ticket">
+          <div role="tablist" class="list_tab">
+              <button type="button" aria-labelledby="tab_00" role="tab" class="item_tab" aria-selected="true">항공권 예매</button>
+              <button type="button" aria-labelledby="tab_01" role="tab" class="item_tab" aria-selected="false">예약 조회</button>
+              <button type="button" aria-labelledby="tab_02" role="tab" class="item_tab" aria-selected="false">체크인</button>
+              <button type="button" aria-labelledby="tab_03" role="tab" class="item_tab" aria-selected="false">출도착 조회</button>
+          </div>
+          <div role="tabpanel" id="tab_00" class="tabpanel">
+            <div class="area_booking">
+              <div class="box_booking">
+                <button type="button" class="btn_booking">예매</button>
+                <a href="#" class="link_booking">마일리지 예매</a>
+              </div>
+              <div class="box_booking_type">
+                <input type="radio" name="tripType1" id="round" class="input_booking_type" checked>
+                <label for="round" class="label_booking_type" tabindex="0">왕복</label>
+                <input type="radio" name="tripType1" id="oneway" class="input_booking_type">
+                <label for="oneway" class="label_booking_type" tabindex="0">편도</label>
+                <a href="#" class="link_booking_type">다구간</a>
+              </div>
+            </div>
+            <div class="area_schedule">
+              <div class="box_time">
+                <button type="button" class="btn_time departure">From
+                  <span class="text_time">출발지</span>
+                </button>
+                <!-- [D] 경로 변경 가능할 시, btn_change 에 is_active 클래스 추가-->
+                <button type="button" class="btn_change">
+                  <span class="a11y">출발 도착 바꾸기</span>
+                </button>
+                <button type="button" class="btn_time arrival">To
+                  <span class="text_time">도착지</span>
+                </button>
+              </div>
+              <div class="box_information">
+              <!-- [D] 탑승객, 출발일, 좌석등급 선택 완료 시, box_schedule에 is_active 클래스 추가 -->
+              <div class="box_schedule departure">
+                <em class="title_schedule">출발일</em>
+                <button type="button" class="btn_schedule calendar">
+                  <span class="text_schedule">가는 날 ~ 오는 날</span>
+                </button>
+              </div>
+              
+              <div class="box_schedule passenger is_active">
+                <em class="title_schedule">탑승객</em>
+                <button type="button" class="btn_schedule">
+                  <span class="text_schedule">성인 1명</span>
+                </button>
+              </div>
+              <div class="box_schedule seat">
+                <em class="title_schedule">좌석등급</em>
+                <button type="button" class="btn_schedule">
+                  <span class="text_schedule">선택하세요.</span>
+                </button>
+              </div>
+              <button type="button" class="btn_find">항공편 검색</button>
+              </div>
+
+            </div>
+          </div>
+          <div role="tabpanel" id="tab_01" class="tabpanel type_align" hidden>
+            <div class="area_schedule type_align">
+              <div class="box_information">
+                <div class="box_schedule expand">
+                  <label for="reseve5" class="title_schedule">예약번호 또는 항공권번호</label>
+                  <input type="text" class="input_schedule reservation" id="reseve5" placeholder="예&#41; A1B2C3 또는 181234567890">
+                </div>
+                <div class="box_schedule expand is_active">
+                  <em class="title_schedule">출발일</em>
+                  <button type="button" class="btn_schedule calendar"></button>
+                </div>
+                <div class="box_schedule">
+                  <label for="reseve6" class="title_schedule">승객 성</label>
+                  <input type="text" class="input_schedule" id="reseve6">
+                </div>
+                <div class="box_schedule">
+                  <label for="reseve7" class="title_schedule">승객 이름</label>
+                  <input type="text" class="input_schedule" id="reseve7">
+                </div>
+                <p class="notice">국내선 한글 예약인 경우, 한글 성과 이름을 입력하세요.</p>
+              </div>
+              <div class="box_confirm">
+                <input type="checkbox" name="comfirm1" id="confirm1" class="input_comfirm">
+                <label for="confirm1" class="label_confirm">[필수] 본인의 예약 정보이거나 승객으로부터 조회를 위임 받은 예약 정보 입니다.</label>  
+              </div>
+              <button type="button" class="btn_find">조회</button>
+            </div>
+          </div>
+          <div role="tabpanel" id="tab_02" class="tabpanel type_align" hidden>
+            <div class="area_schedule type_align">
+              <div class="box_information">
+                <div class="box_schedule expand">
+                  <label for="reseve1" class="title_schedule">예약번호 또는 항공권번호</label>
+                  <input type="text" class="input_schedule reservation" id="reseve1" placeholder="예&#41; A1B2C3 또는 181234567890">
+                </div>
+                <div class="box_schedule expand">
+                  <label for="select_day" class="title_schedule">출발일</label>
+                  <select name="days" id="select_day" class="select_day">
+                    <option class="item_day">2024년 3월 27일</option>
+                    <option class="item_day">2024년 3월 28일</option>
+                    <option class="item_day">2024년 3월 29일</option>
+                    <option class="item_day">2024년 3월 30일</option>
+                  </select>
+                </div>
+                <div class="box_schedule">
+                  <label for="reseve3" class="title_schedule">승객 성</label>
+                  <input type="text" class="input_schedule" id="reseve3">
+                </div>
+                <div class="box_schedule">
+                  <label for="reseve4" class="title_schedule">승객 이름</label>
+                  <input type="text" class="input_schedule" id="reseve4">
+                </div>
+                <p class="notice">국내선 한글 예약인 경우, 한글 성과 이름을 입력하세요.</p>
+              </div>
+              <div class="box_confirm">
+                <input type="checkbox" name="comfirm" id="confirm" class="input_comfirm">
+                <label for="confirm" class="label_confirm">[필수] 본인의 예약 정보이거나 승객으로부터 조회를 위임 받은 예약 정보 입니다.</label>  
+              </div>
+              <button type="button" class="btn_find">조회</button>
+            </div>
+          </div>
+          <div role="tabpanel" id="tab_03" class="tabpanel" hidden>
+            <div class="area_booking">
+              <div class="box_booking">
+                <button type="button" class="btn_booking">출도착 조회</button>
+                <a href="#" class="link_booking">주간 스케줄</a>
+              </div>
+              <div class="box_booking_type">
+                <input type="radio" name="tripType2" id="type_round" class="input_booking_type" checked>
+                <label for="type_round" class="label_booking_type" tabindex="0">출/도착지</label>
+                <input type="radio" name="tripType2" id="type_oneway" class="input_booking_type">
+                <label for="type_oneway" class="label_booking_type" tabindex="0">편명</label>
+              </div>
+            </div>
+            <div class="area_schedule">
+              <div class="box_time">
+                <button type="button" class="btn_time departure">From
+                  <span class="text_time">출발지</span>
+                </button>
+                <!-- [D] 경로 변경 가능할 시, btn_change 에 is_active 클래스 추가-->
+                <button type="button" class="btn_change">
+                  <span class="a11y">출발 도착 바꾸기</span>
+                </button>
+                <button type="button" class="btn_time arrival">To
+                  <span class="text_time">도착지</span>
+                </button>
+              </div>
+              <div class="box_information">
+                <!-- [D] 탑승객, 출발일, 좌석등급 선택 완료 시, box_schedule에 is_active 클래스 추가 -->
+                <div class="box_schedule departure is_active type_single">
+                  <em class="title_schedule">출발일</em>
+                  <button type="button" class="btn_schedule calendar">
+                    <span class="text_schedule">2024년 03월 11일</span>
+                  </button>
+                </div>
+                <button type="button" class="btn_find">조회</button>
+              </div>
+
+            </div>
+          </div>
+      </div>
+      </div>
+    </section>
+    <section class="section_benefit">
+      <div class="inner">
+        <h3><span class="a11y">서비스 혜택</span></h3>
+        <div class="list_benefit swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <a href="#" class="item_benefit">            
+                <div class="box_img">
+                  <img src="https://picsum.photos/812/470" alt>
+                </div>
+                <div class="box_text">
+                  <span class="text">다양한 마일리지 사용 방법을 확인하세요.</span>
+                  <span class="benefit-pagination"><span class="current">1</span>/7</span>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#" class="item_benefit">            
+                <div class="box_img">
+                  <img src="https://picsum.photos/812/400" alt>
+                </div>
+                <div class="box_text">
+                  <span class="text">일본 노선 운항 재개 스케쥴을 확인하세요. 일본 노선 운항 재개 스케쥴을 확인하세요.</span>
+                  <span class="benefit-pagination"><span class="current">2</span>/7</span>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#" class="item_benefit">            
+                <div class="box_img">
+                  <img src="https://picsum.photos/812/410" alt>
+                </div>
+                <div class="box_text">
+                  <span class="text">동영상으로 알아보는 서비스 가이드</span>
+                  <span class="benefit-pagination"><span class="current">3</span>/7</span>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#" class="item_benefit">            
+                <div class="box_img">
+                  <img src="https://picsum.photos/812/420" alt>
+                </div>
+                <div class="box_text">
+                  <span class="text">대한항공 기프트카드로 여행을 선물하세요.</span>
+                  <span class="benefit-pagination"><span class="current">4</span>/7</span>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#" class="item_benefit">            
+                <div class="box_img">
+                  <img src="https://picsum.photos/812/430" alt>
+                </div>
+                <div class="box_text">
+                  <span class="text">일본 노선 운항 재개 스케쥴을 확인하세요. 일본 노선 운항 재개 스케쥴을 확인하세요.</span>
+                  <span class="benefit-pagination"><span class="current">5</span>/7</span>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#" class="item_benefit">            
+                <div class="box_img">
+                  <img src="https://picsum.photos/812/450" alt>
+                </div>
+                <div class="box_text">
+                  <span class="text">쌓이는 속도가 다르다! 대한항공카드 혜택 알아보기</span>
+                  <span class="benefit-pagination"><span class="current">6</span>/7</span>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#" class="item_benefit">            
+                <div class="box_img">
+                  <img src="https://picsum.photos/812/440" alt>
+                </div>
+                <div class="box_text">
+                  <span class="text">일본 노선 운항 재개 스케쥴을 확인하세요. 일본 노선 운항 재개 스케쥴을 확인하세요.</span>
+                  <span class="benefit-pagination"><span class="current">7</span>/7</span>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="benefit-button-next"></div>
+          <div class="benefit-button-prev"></div>
+          <div class="benefit-pagination"></div>
+        </div>
+      </div>
+    </section>
+    <section class="section_notice">
+      <div class="inner">
+        <div class="box_title">
+          <h3 class="title">알려드립니다</h3>
+          <a href="#" class="btn_view_list">목록보기</a>
+        </div>
+        <div class="area_notice">
+          <ul class="list_notice">
+            <li class="item_notice">
+              <a href="#" class="link">
+                <p class="headline">엑설런트 보딩패스 제휴 종료 (쉐이크쉑)</p>
+                <span class="date">2024.02.27</span>
+              </a>
+            </li>
+            <li class="item_notice">
+              <a href="#" class="link">
+                <p class="headline">스카이패스 서비스 일시 제한 (3월 8일 22시 ~ 9일 22시, 한국 시간 기준)</p>
+                <span class="date">2024.02.27</span>
+              </a>
+            </li>
+            <li class="item_notice">
+              <a href="#" class="link">
+                <p class="headline">동남아 및 중국 노선 운항 재개</p>
+                <span class="date">2024.02.27</span>
+              </a>
+            </li>
+            <li class="item_notice">
+              <a href="#" class="link">
+                <p class="headline">스카이패스 회원 할인 제휴 변경(키자니아 서울)</p>
+                <span class="date">2024.02.27</span>
+              </a>
+            </li>
+          </ul>
+          <aside class="box_banner">
+            <a href="#" class="banner_link">
+              <div class="box_img">
+                <img src="img/img_app.png" alt="">
+                <div class="banner_text">
+                  <em class="banner_title">대한항공 MY 앱</em>
+                  <p class="banner_desc">내 여행에 최적화된 맞춤 정보를 확인하세요.</p>
+                </div>
+              </div>
+            </a>
+          </aside>
+        </div>
+      </div>
+    </section>
     <section class="section_category">
       <div class="inner type_skyblue">
         <div class="box_title">
@@ -254,14 +557,26 @@
         </div>
         <ul class="list_category">
           <li class="item_category">
-            <button type="button" class="btn_category">호텔<img src="https://www.koreanair.com/wwwupload/maincontents/completejourney/masl__hotel-pc.png" alt></button>
+            <button type="button" class="btn_category">대한항공카드<img class="img_category" src="https://www.koreanair.com/wwwupload/maincontents/completejourney/masl__credit-card-pc.png" alt></button>
+            <div class="box_link">
+              <a href="#" class="link_experience">대한항공카드</a>
+            </div>
+          </li>
+          <li class="item_category">
+            <button type="button" class="btn_category">키프트카드<img class="img_category" src="https://www.koreanair.com/wwwupload/maincontents/completejourney/masl__gifgcard-pc.png" alt></button>
+            <div class="box_link">
+              <a href="#" class="link_experience">키프트카드</a>
+            </div>
+          </li>
+          <li class="item_category">
+            <button type="button" class="btn_category">호텔<img class="img_category" src="https://www.koreanair.com/wwwupload/maincontents/completejourney/masl__hotel-pc.png" alt></button>
             <div class="box_link">
               <a href="#" class="link_experience">아고다</a>
               <a href="#" class="link_experience">Hotels.com</a>
             </div>
           </li>
           <li class="item_category">
-            <button type="button" class="btn_category">렌터카<img src="https://www.koreanair.com/wwwupload/maincontents/completejourney/masl__hotel-pc.png" alt></button>
+            <button type="button" class="btn_category">렌터카<img class="img_category" src="https://www.koreanair.com/wwwupload/maincontents/completejourney/masl__hotel-pc.png" alt></button>
             <div class="box_link">
               <a href="#" class="link_experience">Hertz</a>
               <a href="#" class="link_experience">SK렌터카</a>
@@ -270,9 +585,22 @@
             </div>
           </li>
           <li class="item_category">
-            <button type="button" class="btn_category">기내 면세점<img src="https://www.koreanair.com/wwwupload/maincontents/completejourney/masl__duty-free-pc.png" alt></button>
+            <button type="button" class="btn_category">기내 면세점<img class="img_category" src="https://www.koreanair.com/wwwupload/maincontents/completejourney/masl__duty-free-pc.png" alt></button>
             <div class="box_link">
               <a href="#" class="link_experience">SkyShop</a>
+            </div>
+          </li>
+          <li class="item_category">
+            <button type="button" class="btn_category">여행자 보험<img class="img_category" src="https://www.koreanair.com/wwwupload/maincontents/completejourney/masl__insurance-pc.png" alt></button>
+            <div class="box_link">
+              <a href="#" class="link_experience">여행자 보험</a>
+            </div>
+          </li>
+          <li class="item_category">
+            <button type="button" class="btn_category">여행 상품<img class="img_category" src="https://www.koreanair.com/wwwupload/maincontents/completejourney/masl__guide-book-pc.png" alt></button>
+            <div class="box_link">
+              <a href="#" class="link_experience">한진관광</a>
+              <a href="#" class="link_experience">KALPAK</a>
             </div>
           </li>
         </ul>
@@ -282,63 +610,66 @@
 
   <!-- footer -->
   <footer class="footer">
+  
     <div class="wrap_sitemap">
-      <section class="area_sitemap">
-        <div class="box_sitemap">
-          <h3 class="title_sitemap" aria-expanded="true">회사소개</h3>
-          <ul class="list_sitemap">
-            <li><a href="#" class="link_sitemap">대한항공에 대하여</a></li>
-            <li><a href="#" class="link_sitemap">기업지배구조</a></li>
-            <li><a href="#" class="link_sitemap">투자정보</a></li>
-            <li><a href="#" class="link_sitemap">지속가능경영</a></li>
-            <li><a href="#" class="link_sitemap">뉴스룸</a></li>
-          </ul>
+      <div class="inner gray">
+        <div class="area_sitemap" role="tablist">
+          <div class="box_sitemap">
+            <h3 class="title_sitemap" aria-controls="sitemap_panel1" role="tab" tabindex="0" aria-expanded="false">회사소개</h3>
+            <div id="sitemap_panel1" role="tabpanel" class="sitemap_panel">
+              <a href="#" class="link_sitemap">대한항공에 대하여</a>
+              <a href="#" class="link_sitemap">기업지배구조</a>
+              <a href="#" class="link_sitemap">투자정보</a>
+              <a href="#" class="link_sitemap">지속가능경영</a>
+              <a href="#" class="link_sitemap">뉴스룸</a>
+            </div>
+          </div>
+          <div class="box_sitemap">
+            <h3 class="title_sitemap" aria-controls="sitemap_panel2" role="tab" tabindex="0" aria-expanded="false">고객지원</h3>
+            <div id="sitemap_panel2" role="tabpanel" class="sitemap_panel">
+              <a href="#" class="link_sitemap">공지사항</a>
+              <a href="#" class="link_sitemap">고객의 말씀</a>
+              <a href="#" class="link_sitemap">서비스 센터</a>
+              <a href="#" class="link_sitemap">e-서식함</a>
+              <a href="#" class="link_sitemap">웹 접근성</a>
+            </div>
+          </div>
+          <div class="box_sitemap">
+            <h3 class="title_sitemap" aria-controls="sitemap_panel3" role="tab" tabindex="0" aria-expanded="false">약관 및 규정</h3>
+            <div id="sitemap_panel3" role="tabpanel" class="sitemap_panel">
+              <a href="#" class="link_sitemap bold">개인정보 처리방침</a>
+              <a href="#" class="link_sitemap">이용약관</a>
+              <a href="#" class="link_sitemap">운송약관 및 고지사항</a>
+              <a href="#" class="link_sitemap">소비자 안전 관련 정보</a>
+              <a href="#" class="link_sitemap">운임 및 서비스 요금표</a>
+            </div>
+          </div>
+          <div class="box_sitemap">
+            <h3 class="title_sitemap" aria-controls="sitemap_panel4" role="tab" tabindex="0" aria-expanded="false">기타 안내</h3>
+            <div id="sitemap_panel4" role="tabpanel" class="sitemap_panel">
+              <a href="#" class="link_sitemap">기업 출장 여행</a>
+              <a href="#" class="link_sitemap">고객 안내 서비스</a>
+              <a href="#" class="link_sitemap">항공교통이용자 서비스 계획</a>
+              <a href="#" class="link_sitemap">항공교통이용자 피해 구제</a>
+              <a href="#" class="link_sitemap">관련 사이트</a>
+              <a href="#" class="link_sitemap">사이트맵</a>
+            </div>
+          </div>
         </div>
-        <div class="box_sitemap">
-          <h3 class="title_sitemap">고객지원</h3>
-          <ul class="list_sitemap">
-            <li><a href="#" class="link_sitemap">공지사항</a></li>
-            <li><a href="#" class="link_sitemap">고객의 말씀</a></li>
-            <li><a href="#" class="link_sitemap">서비스 센터</a></li>
-            <li><a href="#" class="link_sitemap">e-서식함</a></li>
-            <li><a href="#" class="link_sitemap">웹 접근성</a></li>
-          </ul>
-        </div>
-        <div class="box_sitemap">
-          <h3 class="title_sitemap">약관 및 규정</h3>
-          <ul class="list_sitemap">
-            <li><a href="#" class="link_sitemap bold">개인정보 처리방침</a></li>
-            <li><a href="#" class="link_sitemap">이용약관</a></li>
-            <li><a href="#" class="link_sitemap">운송약관 및 고지사항</a></li>
-            <li><a href="#" class="link_sitemap">소비자 안전 관련 정보</a></li>
-            <li><a href="#" class="link_sitemap">운임 및 서비스 요금표</a></li>
-          </ul>
-        </div>
-        <div class="box_sitemap">
-          <h3 class="title_sitemap">기타 안내</h3>
-          <ul class="list_sitemap">
-            <li><a href="#" class="link_sitemap">기업 출장 여행</a></li>
-            <li><a href="#" class="link_sitemap">고객 안내 서비스</a></li>
-            <li><a href="#" class="link_sitemap">항공교통이용자 서비스 계획</a></li>
-            <li><a href="#" class="link_sitemap">항공교통이용자 피해 구제</a></li>
-            <li><a href="#" class="link_sitemap">관련 사이트</a></li>
-            <li><a href="#" class="link_sitemap">사이트맵</a></li>
-          </ul>
-        </div>
-      </section>
-      <div class="box_pr">
-        <div class="box_download">
-          <a href="#" class="item_sns google"><span class="a11y">구글 플레이</span></a>
-          <a href="#" class="item_sns apple"><span class="a11y">애플 스토어</span></a>
-        </div>
-        <div class="box_sns">
-          <a href="#" class="item_sns youtube"><span class="a11y">유튜브</span></a>
-          <a href="#" class="item_sns instagram"><span class="a11y">인스타그램</span></a>
-          <a href="#" class="item_sns facebook"><span class="a11y">페이스북</span></a>
-          <a href="#" class="item_sns twitter"><span class="a11y">twitter</span></a>
-        </div>
-        <div class="img_pr">
-          <img src="https://www.koreanair.com/assets/images/banner-visitkorea.svg" alt="VISIT KOREA YEAR 2023 to 2024">
+        <div class="box_pr">
+          <div class="box_download">
+            <a href="#" class="item_sns google"><span class="a11y">구글 플레이</span></a>
+            <a href="#" class="item_sns apple"><span class="a11y">애플 스토어</span></a>
+          </div>
+          <div class="box_sns">
+            <a href="#" class="item_sns youtube"><span class="a11y">유튜브</span></a>
+            <a href="#" class="item_sns instagram"><span class="a11y">인스타그램</span></a>
+            <a href="#" class="item_sns facebook"><span class="a11y">페이스북</span></a>
+            <a href="#" class="item_sns twitter"><span class="a11y">twitter</span></a>
+          </div>
+          <div class="img_pr">
+            <img src="https://www.koreanair.com/assets/images/banner-visitkorea.svg" alt="VISIT KOREA YEAR 2023 to 2024">
+          </div>
         </div>
       </div>
     </div>
@@ -354,95 +685,101 @@
       </div>
     </div>
   </footer>
-    <!-- search -->
-    <div class="dialog_search" id="dialog_search" role="dialog" style="display: none;">
-      <strong>검색</strong>
-      <input type="text">
-      <div class="page_previous">
-        button
-      </div>
-      <div class="page_search">
-        <em>인기 검색어</em>
-        <button>#마일리지</button>
-        <button>#사전 좌석 배정</button>
-      </div>
+  <!-- search -->
+  <div class="dialog_search" id="dialog_search" role="dialog" style="display: none;">
+    <strong>검색</strong>
+    <input type="text">
+    <div class="page_previous">
+      button
     </div>
-    <!-- mobile_menu -->
-    <div class="dialog_search" id="dialog_search" role="dialog" style="display: none;">
-      <strong>검색</strong>
-      <input type="text">
-      <div class="page_previous">
-        button
-      </div>
-      <div class="page_search">
-        <em>인기 검색어</em>
-        <button>#마일리지</button>
-        <button>#사전 좌석 배정</button>
-      </div>
+    <div class="page_search">
+      <em>인기 검색어</em>
+      <button>#마일리지</button>
+      <button>#사전 좌석 배정</button>
     </div>
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-      // Swiper
-      var swiper = new Swiper('.list_benefit',{
-        slidesPerView: 1.5,
-        navigation: {
-          nextEl : '.benefit-button-next',
-          prevEl : '.benefit-button-prev'
+  </div>
+  <!-- mobile_menu -->
+  <div class="dialog_menu" id="dialog_menu" role="dialog" style="display: none;">
+    <strong>검색</strong>
+    <input type="text">
+    <div class="page_previous">
+      button
+    </div>
+    <div class="page_search">
+      <em>인기 검색어</em>
+      <button>#마일리지</button>
+      <button>#사전 좌석 배정</button>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+  var swiper = new Swiper('.list_benefit',{
+    slidesPerView: 1.2,
+    navigation: {
+      nextEl : '.benefit-button-next',
+      prevEl : '.benefit-button-prev'
+    },
+    spaceBetween: 30,
+    breakpoints: {    
+        768: {
+          slidesPerView: 2.2,
         },
-        spaceBetween: 30,
-      })
-
-      $('.main_menu .item').on('mouseenter click mouseleave',function(){
-        $(this).addClass('is_active').siblings().removeClass('is_active')
-      })
-      $('.main_menu .item').on('mouseleave',function(){
-        $(this).removeClass('is_active')
-      })
-
-
-      if($(window).width() < 1060){
-        $('.nav').attr('tabindex','0')
-        $('.nav').attr('aria-haspopup','dialog')
-      } else {
-        $('.nav').removeAttr('tabindex')
-        $('.nav').removeAttr('aria-haspopup')
-      }
-
-      $(window).resize(function(){
-        if($(window).width() < 1060){
-        $('.nav').attr('tabindex','0')
-        $('.nav').attr('aria-haspopup','dialog')
-      } else {
-        $('.nav').removeAttr('tabindex')
-        $('.nav').removeAttr('aria-haspopup')
-      }
-      })
-
-          // Swiper
-    var swiper = new Swiper('.list_benefit',{
-      slidesPerView: 1.5,
-      navigation: {
-        nextEl : '.benefit-button-next',
-        prevEl : '.benefit-button-prev'
+        1024: {
+          slidesPerView: 3,
+        },
       },
-      spaceBetween: 30,
-    })
+  })
 
-    $('.item_category').on('mouseenter',function(){
-      var idx=$(this).index()
-      $('.section_category .inner').addClass('is_active');
-      $('.section_category .inner .btn_category').eq(idx).addClass('is_active')
-    })
-    $('.item_category').on('mouseleave',function(){
-      $('.section_category .inner').removeClass('is_active')
-      $('.section_category .inner .btn_category').removeClass('is_active')
-    })
+  $('.main_menu .item').on('mouseenter click mouseleave',function(){
+    $(this).addClass('is_active').siblings().removeClass('is_active')
+  })
+  $('.main_menu .item').on('mouseleave',function(){
+    $(this).removeClass('is_active')
+  })
 
-    // 이벤트 핸들러 - 이벤트 발생시 동작할 함수
-function eventHandler(e) {
+  if($(window).width() < 1060){
+    $('.nav').attr('tabindex','0')
+    $('.nav').attr('aria-haspopup','dialog')
+  } else {
+    $('.nav').removeAttr('tabindex')
+    $('.nav').removeAttr('aria-haspopup')
+  }
+
+  $(window).resize(function(){
+    if($(window).width() < 1060){
+    $('.nav').attr('tabindex','0')
+    $('.nav').attr('aria-haspopup','dialog')
+  } else {
+    $('.nav').removeAttr('tabindex')
+    $('.nav').removeAttr('aria-haspopup')
+  }
+  })
+
+  $('.item_category').on('mouseenter',function(){
+    var idx=$(this).index()
+    $('.section_category .inner').addClass('is_active');
+    $('.section_category .inner .btn_category').eq(idx).addClass('is_active')
+  })
+
+  $('.item_category').on('mouseleave',function(){
+    $('.section_category .inner').removeClass('is_active')
+    $('.section_category .inner .btn_category').removeClass('is_active')
+  })
+
+  $('.btn_category').on('click',function(){
+    $('.btn_category').removeClass('is_open')
+    $(this).addClass('is_open')
+  })
+
+  function eventHandler(e) {
+    var $eTarget = $(e.currentTarget);
+    $('.title_sitemap').attr('aria-expanded', false);
+    $eTarget.attr('aria-expanded', true);
+  }
+  function eventHandlerTicket(e) {
   var $eTarget = $(e.currentTarget);
-  var $targetPanel = $('[aria-labelledby="' + $eTarget.attr('id') + '"]');
+  var $targetPanel = $('[id="' + $eTarget.attr('aria-labelledby') + '"]');
     $eTarget
         .attr('aria-selected', true)
         .siblings('[role="tab"]')
@@ -454,27 +791,9 @@ function eventHandler(e) {
         .attr('hidden', true)
 
 }
-function eventHandler2(e) {
-  var $eTarget = $(e.currentTarget);
-  var $targetPanel = $('[id="' + $eTarget.attr('aria-labelledby') + '"]');
-    $eTarget
-        .attr('aria-expanded', true)
-        .siblings('[role="tab"]')
-        .attr('aria-selected', false)
-
-    $targetPanel
-        .attr('hidden', false)        
-        .siblings('[role="tabpanel"]')
-        .attr('hidden', true)
-
-}
-
-// 이벤트 바인딩 - 이벤트와, 실행될 함수를 연결해줌
-$('[role="tab"]').on('click', eventHandler);
-$('.btn_company').on('click', eventHandler2);
-
-
-    </script>
-    
+  $('.btn_category').on('click', eventHandler);
+  $('.title_sitemap').on('click', eventHandler);
+  $('.item_tab').on('click', eventHandlerTicket);
+  </script>
 </body>
 </html>
