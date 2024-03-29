@@ -1,13 +1,22 @@
 :root {
   --main-color: #0064de;
   --dark-blue: #00256c;
+  --red: #de001b;
   --gray: #d9dbe1;
+  --gray2: #65728a;
+  --gray3: #ddd;
   --white: #fff;
   --skyblue: #10a1c0;
+  --skyblue2: #8be0f8;
   --darkgray: #555;
   --lightgray: #777;
+  --lightgray2: #767676;
+  --lightgray3: #e7eaf0;
+  --lightgray4: #f8f9fc;
   --bg-gray: #f3f4f8;
+  --bg-gray2: #d0e7f6;
   --black: #000;
+  --black2: #222;
 }
 
 .header {
@@ -96,7 +105,7 @@
     height: 40px;
   }
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1060px) {
   .header .inner {
     height: 104px;
     padding: 0 20px;
@@ -128,6 +137,7 @@
   }
   .header .gnb .main_menu {
     display: flex;
+    justify-content: center;
   }
   .header .area_sign {
     position: absolute;
@@ -144,8 +154,8 @@
     padding-right: 36px;
     text-align: left;
     border: none;
-    color: #767676;
-    background: #f3f4f8;
+    color: var(--lightgray2);
+    background: var(--bg-gray);
     cursor: pointer;
   }
   .header .area_sign .btn_search .search_text {
@@ -179,7 +189,6 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  justify-content: center;
   z-index: 10;
 }
 .main_menu .item.is_active .item_contents {
@@ -211,7 +220,7 @@
   top: 0;
   left: 0;
   padding: 24px;
-  color: #000;
+  color: var(--black);
   font-weight: 700;
   font-size: 16px;
   z-index: 10;
@@ -260,18 +269,17 @@
   left: 0;
   right: 0;
   display: none;
-  justify-content: space-between;
   width: 100%;
   max-width: 1280px;
   padding: 60px 60px 40px;
   margin: 0 auto;
   border-top: 1px solid var(--gray);
-  background: #f8f9fc;
+  background: var(--lightgray4);
   box-sizing: border-box;
 }
 .main_menu .menu_title {
   display: block;
-  color: #000;
+  color: var(--black);
   font-weight: 700;
   font-size: 16px;
   margin-bottom: 20px;
@@ -285,7 +293,6 @@
 .list_menu .item {
   width: 31%;
   max-width: 275px;
-  min-height: 274px;
   padding: 30px;
   border-radius: 6px;
   box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.1);
@@ -303,7 +310,7 @@
 .list_menu .menu_link {
   display: inline-block;
   outline: 0;
-  color: #555;
+  color: var(--darkgray);
   font-size: 14px;
   text-decoration: none;
   line-height: 18px;
@@ -324,7 +331,7 @@
 .sub_menu .link {
   font-size: 13px;
   text-decoration: none;
-  color: #000;
+  color: var(--black);
 }
 .sub_menu .link:not(:first-child) {
   margin-left: 24px;
@@ -349,9 +356,8 @@
 
 .btn_lang {
   margin-left: 24px;
-  padding: 0;
   font-size: 13px;
-  color: #000;
+  color: var(--black);
   cursor: pointer;
 }
 .btn_lang:before {
@@ -392,7 +398,7 @@
   left: 0;
   width: 100%;
   height: 20px;
-  background-color: #65728a;
+  background-color: var(--gray2);
   content: "";
 }
 
@@ -411,7 +417,8 @@
   position: relative;
   display: flex;
 }
-.list_tab .item_tab {
+
+.item_tab {
   width: 25%;
   font-size: 16px;
   width: 100%;
@@ -426,15 +433,15 @@
      -moz-appearance: none;
           appearance: none;
   color: var(--white);
-  background-color: #65728a;
+  background-color: var(--gray2);
 }
-.list_tab .item_tab[aria-selected=true] {
+.item_tab[aria-selected=true] {
   position: relative;
-  color: #000;
+  color: var(--black);
   font-weight: 700;
   background-color: var(--white);
 }
-.list_tab .item_tab[aria-selected=true]:before {
+.item_tab[aria-selected=true]:before {
   position: absolute;
   top: 54px;
   left: 0;
@@ -444,7 +451,7 @@
   z-index: 1;
   content: "";
 }
-.list_tab .item_tab:first-child {
+.item_tab:first-child {
   margin-left: 0;
 }
 
@@ -453,6 +460,23 @@
   padding: 30px 40px;
   border-radius: 20px;
   background-color: var(--white);
+}
+.tabpanel.type_align .area_schedule {
+  position: relative;
+  flex-direction: column;
+  align-items: baseline;
+  margin-top: 0;
+}
+.tabpanel.type_align .box_information {
+  padding-left: 0;
+}
+.tabpanel.type_align .btn_find {
+  position: absolute;
+  top: 32px;
+  right: 0;
+}
+.tabpanel.type_single .box_schedule {
+  min-width: 400px;
 }
 
 .area_booking {
@@ -496,10 +520,9 @@
   position: relative;
   padding: 10px;
   margin: 0 5px;
-  color: #555;
+  color: var(--darkgray);
   text-align: center;
   font-size: 16px;
-  vertical-align: middle;
 }
 .box_booking_type .input_booking_type:checked + .label_booking_type {
   color: var(--dark-blue);
@@ -513,7 +536,7 @@
   right: 0;
   height: 3px;
   width: calc(100% - 20px);
-  background: #de001b;
+  background: var(--red);
   border-radius: 2px;
   content: "";
 }
@@ -521,7 +544,7 @@
   position: relative;
   margin-left: 4px;
   padding: 10px 14px;
-  color: #555;
+  color: var(--darkgray);
   text-decoration: none;
   font-size: 16px;
 }
@@ -531,8 +554,8 @@
   height: 6px;
   margin-left: 4px;
   content: "";
-  border-left: 1px solid #555;
-  border-bottom: 1px solid #555;
+  border-left: 1px solid var(--darkgray);
+  border-bottom: 1px solid var(--darkgray);
   transform: rotate(225deg);
   vertical-align: middle;
 }
@@ -543,22 +566,7 @@
   justify-content: space-between;
   margin-top: 40px;
 }
-.area_schedule.type_align {
-  position: relative;
-  flex-direction: column;
-  align-items: baseline;
-  margin-top: 0;
-}
-.area_schedule.type_align .box_information {
-  padding-left: 0;
-}
-.area_schedule.type_align .btn_find {
-  position: absolute;
-  top: 32px;
-  right: 0;
-}
 .area_schedule .box_schedule {
-  position: relative;
   width: 18%;
 }
 .area_schedule .box_schedule.expand {
@@ -575,7 +583,7 @@
 .btn_time {
   width: calc(50% - 24px);
   font-size: 32px;
-  color: #767676;
+  color: var(--lightgray2);
   text-align: center;
   font-weight: 700;
 }
@@ -615,28 +623,14 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  height: 80px;
-}
-.box_schedule.type_single {
-  min-width: 400px;
+  min-height: 80px;
 }
 .box_schedule.is_active .text_schedule {
   font-weight: 700;
-  color: #000;
-}
-.box_schedule.is_active.departure .input_schedule {
-  padding-left: 0;
-}
-.box_schedule.is_active.departure .input_schedule:before {
-  left: auto;
-  right: 0;
-  background-image: url("https://www.koreanair.com/ico-select.svg");
+  color: var(--black);
 }
 .box_schedule.departure {
   width: 38%;
-}
-.box_schedule.departure .btn_schedule {
-  padding-left: 30px;
 }
 .box_schedule.passenger {
   width: 18%;
@@ -696,6 +690,7 @@
 }
 .box_schedule .btn_schedule {
   position: relative;
+  display: flex;
   width: 100%;
   min-height: 42px;
   color: var(--lightgray);
@@ -706,17 +701,13 @@
   border-bottom: 1px solid var(--lightgray);
   cursor: pointer;
 }
-.box_schedule .btn_schedule.calendar:before {
-  position: absolute;
-  right: 0;
-  top: 50%;
+.box_schedule .calendar:before {
+  display: block;
   width: 24px;
   height: 24px;
-  transform: translateY(-50%);
+  margin-right: 3px;
   background-size: 24px 24px;
   content: "";
-  left: 0;
-  right: auto;
   background-image: url("https://www.koreanair.com/icon-main-quick__calendar.svg");
 }
 .box_schedule .text_schedule {
@@ -740,7 +731,7 @@
   left: calc(60% + 22px);
   top: calc(100% + 10px);
   font-size: 12px;
-  color: #555;
+  color: var(--darkgray);
 }
 .notice:before {
   display: inline-block;
@@ -769,17 +760,17 @@
   flex: none;
   width: 18px;
   height: 18px;
-  border: 1px solid #00256c;
+  border: 1px solid var(--dark-blue);
   border-radius: 2px;
 }
 .input_comfirm:checked {
-  background: #00256c url("https://www.koreanair.com/ico-checkbox.svg") no-repeat center;
+  background: var(--dark-blue) url("https://www.koreanair.com/ico-checkbox.svg") no-repeat center;
 }
 
 .label_confirm {
   display: inline-block;
   margin-left: 10px;
-  color: #555;
+  color: var(--darkgray);
   font-size: 14px;
 }
 
@@ -805,10 +796,36 @@
     top: 50%;
     width: 1px;
     height: 16px;
-    background-color: #f3f4f8;
+    background-color: var(--lightgray4);
     opacity: 0.5;
     transform: translateY(-50%);
     content: "";
+  }
+  .item_tab[aria-selected=true]:after {
+    display: none;
+  }
+  .item_tab[aria-selected=true] + .item_tab:after {
+    display: none;
+  }
+  .tabpanel {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+  .tabpanel.type_align {
+    padding-bottom: 110px;
+  }
+  .tabpanel.type_align .area_schedule {
+    position: static;
+  }
+  .tabpanel.type_align .btn_find {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    width: calc(100% - 80px);
+    transform: translateX(-50%);
+  }
+  .tabpanel.type_align .box_confirm {
+    padding-top: 0;
   }
   .area_booking {
     flex-direction: column;
@@ -818,24 +835,18 @@
     width: auto;
     margin-right: 0;
   }
-  .area_booking .box_booking .btn_booking, .area_booking .box_booking .link_booking {
+  .area_booking .box_booking .btn_booking,
+  .area_booking .box_booking .link_booking {
     font-size: 14px;
-  }
-  .tabpanel {
-    border-top-right-radius: 0;
-    border-top-left-radius: 0;
   }
   .area_schedule {
     flex-direction: column;
     margin-top: 14px;
   }
-  .area_schedule.type_align {
-    position: static;
-  }
   .area_schedule .box_time {
     width: 100%;
     padding-bottom: 14px;
-    border-bottom: 1px dashed #ddd;
+    border-bottom: 1px dashed var(--gray3);
   }
   .area_schedule .box_information {
     position: relative;
@@ -846,54 +857,12 @@
   .area_schedule .box_information .box_schedule {
     width: 100%;
   }
-  .area_schedule .box_information .box_schedule.departure .btn_schedule:before {
-    display: none;
-  }
-  .area_schedule .box_information .box_schedule.departure .text_schedule {
-    position: relative;
-    display: inline-block;
-    padding-left: 30px;
-  }
-  .area_schedule .box_information .box_schedule.departure .text_schedule:before {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    width: 24px;
-    height: 24px;
-    transform: translateY(-50%);
-    background-size: 24px 24px;
-    content: "";
-    background-image: url("https://www.koreanair.com/icon-main-quick__calendar.svg");
-  }
-  .area_schedule .box_information .box_schedule.type_single {
-    min-width: auto;
-  }
-  .area_schedule .box_information .box_schedule.type_single.departure .btn_schedule {
-    text-align: left;
-  }
   .area_schedule .btn_find {
     width: 100%;
     margin-top: 30px;
   }
   .area_schedule .box_schedule {
     position: static;
-  }
-  .area_schedule .box_schedule.departure .btn_schedule {
-    padding-left: 0;
-  }
-  .area_schedule.type_align .btn_find {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    width: calc(100% - 80px);
-    transform: translateX(-50%);
-  }
-  .area_schedule.type_align + .box_confirm {
-    padding-top: 0px;
-  }
-  .tabpanel.type_align {
-    padding-bottom: 110px;
   }
   .notice {
     position: static;
@@ -939,7 +908,7 @@
 .list_benefit {
   position: relative;
   padding: 16px 0;
-  margin: 0 0 0 20px;
+  margin: 0 20px;
   background-color: var(--white);
 }
 .list_benefit .item_benefit {
@@ -952,7 +921,7 @@
 }
 .list_benefit .item_benefit:hover .box_text, .list_benefit .item_benefit:active .box_text {
   text-decoration: underline;
-  color: #000;
+  color: var(--black);
 }
 .list_benefit .item_benefit:hover .box_img img, .list_benefit .item_benefit:active .box_img img {
   transform: scale(1.2);
@@ -965,7 +934,7 @@
   background-color: var(--white);
 }
 .list_benefit .text {
-  color: #000;
+  color: var(--black);
   font-size: 18px;
   font-weight: 700;
   text-overflow: ellipsis;
@@ -986,7 +955,8 @@
      object-fit: cover;
   transition: 0.3s;
 }
-.list_benefit .benefit-button-prev, .list_benefit .benefit-button-next {
+.list_benefit .benefit-button-prev,
+.list_benefit .benefit-button-next {
   position: absolute;
   top: calc(50% - 45px);
   left: 0;
@@ -998,7 +968,8 @@
   z-index: 10;
   cursor: pointer;
 }
-.list_benefit .benefit-button-prev:after, .list_benefit .benefit-button-next:after {
+.list_benefit .benefit-button-prev:after,
+.list_benefit .benefit-button-next:after {
   position: absolute;
   top: 50%;
   left: -2px;
@@ -1008,7 +979,8 @@
   transform: translateY(-50%);
   content: "";
 }
-.list_benefit .benefit-button-prev[aria-disabled=true], .list_benefit .benefit-button-next[aria-disabled=true] {
+.list_benefit .benefit-button-prev[aria-disabled=true],
+.list_benefit .benefit-button-next[aria-disabled=true] {
   cursor: not-allowed;
 }
 .list_benefit .benefit-button-next {
@@ -1023,15 +995,24 @@
   right: 0;
   padding: 5px 10px;
   border-top-left-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.9);
   font-size: 12px;
-  color: #fff;
+  color: var(--white);
   z-index: 10;
 }
 .list_benefit .benefit-pagination .current {
   font-weight: 700;
 }
 
+@media screen and (max-width: 1060px) {
+  .section_benefit .inner {
+    position: relative;
+    padding: 0;
+  }
+  .list_benefit {
+    margin-right: 0;
+  }
+}
 .section_notice .inner {
   padding: 20px 20px 100px;
 }
@@ -1071,19 +1052,19 @@
   justify-content: space-between;
   align-items: center;
   text-decoration: none;
-  color: #000;
+  color: var(--black);
   padding: 24px 0;
   border-top: 1px solid var(--gray);
 }
 .area_notice .date {
-  color: #777;
+  color: var(--lightgray);
   font-size: 14px;
 }
 .area_notice .headline {
   overflow: hidden;
   display: -webkit-box;
   margin-right: 60px;
-  color: #000;
+  color: var(--black);
   font-weight: 700;
   font-size: 16px;
   line-height: 1.5;
@@ -1125,7 +1106,7 @@
   width: 100%;
   height: 10px;
   margin-top: -5px;
-  background-color: #8be0f8;
+  background-color: var(--skyblue2);
   content: "";
 }
 
@@ -1166,12 +1147,12 @@
   }
 }
 .section_category {
-  background-color: #d0e7f6;
+  background-color: var(--bg-gray2);
 }
 .section_category .inner {
   width: 100%;
   padding: 50px 20px;
-  background-color: #d0e7f6;
+  background-color: var(--bg-gray2);
   transition: 0.3s;
   transition-timing-function: ease-out;
   box-sizing: border-box;
@@ -1242,7 +1223,7 @@
   padding: 10px;
   text-decoration: none;
   font-size: 14px;
-  color: #222;
+  color: var(--black2);
   white-space: nowrap;
   box-sizing: border-box;
 }
@@ -1264,7 +1245,7 @@
 .item_category .btn_category {
   width: 100%;
   padding: 18px;
-  color: #000;
+  color: var(--black);
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.5);
   font-size: 16px;
@@ -1370,9 +1351,8 @@
   box-sizing: border-box;
 }
 .footer .inner.gray {
-  background-color: #f3f4f8;
+  background-color: var(--bg-gray);
   flex-wrap: wrap;
-  padding: 0;
 }
 .footer .copyright {
   display: inline-block;
@@ -1401,8 +1381,8 @@
 
 .wrap_sitemap {
   width: 100%;
-  background-color: #f3f4f8;
-  border-top: 1px solid #d9dbe1;
+  background-color: var(--bg-gray);
+  border-top: 1px solid var(--gray);
   padding: 39px 20px 40px;
   box-sizing: border-box;
 }
@@ -1421,7 +1401,6 @@
   color: var(--black);
   font-weight: 700;
   font-size: 16px;
-  cursor: default;
 }
 .area_sitemap .sitemap_panel {
   margin-top: 15px;
@@ -1446,7 +1425,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  border-top: 1px solid #d9dbe1;
+  border-top: 1px solid var(--gray);
   padding-top: 24px;
 }
 .box_pr .box_download {
@@ -1500,6 +1479,9 @@
 }
 
 @media screen and (max-width: 1060px) {
+  .footer .gray {
+    padding: 0;
+  }
   .box_award {
     display: none;
   }
@@ -1527,7 +1509,7 @@
   }
   .box_sitemap {
     margin-left: 10px;
-    border-bottom: 1px solid #e7eaf0;
+    border-bottom: 1px solid var(--lightgray3);
   }
   .title_sitemap {
     position: relative;
