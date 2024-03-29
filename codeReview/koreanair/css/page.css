@@ -516,7 +516,8 @@
   display: flex;
   align-items: center;
 }
-.box_booking_type .label_booking_type {
+
+.label_booking_type {
   position: relative;
   padding: 10px;
   margin: 0 5px;
@@ -524,11 +525,12 @@
   text-align: center;
   font-size: 16px;
 }
-.box_booking_type .input_booking_type:checked + .label_booking_type {
+
+.input_booking_type:checked + .label_booking_type {
   color: var(--dark-blue);
   font-weight: 700;
 }
-.box_booking_type .input_booking_type:checked + .label_booking_type:after {
+.input_booking_type:checked + .label_booking_type:after {
   position: absolute;
   bottom: 0;
   top: auto;
@@ -540,7 +542,8 @@
   border-radius: 2px;
   content: "";
 }
-.box_booking_type .link_booking_type {
+
+.link_booking_type {
   position: relative;
   margin-left: 4px;
   padding: 10px 14px;
@@ -548,7 +551,7 @@
   text-decoration: none;
   font-size: 16px;
 }
-.box_booking_type .link_booking_type:after {
+.link_booking_type:after {
   display: inline-block;
   width: 6px;
   height: 6px;
@@ -565,12 +568,6 @@
   align-items: center;
   justify-content: space-between;
   margin-top: 40px;
-}
-.area_schedule .box_schedule {
-  width: 18%;
-}
-.area_schedule .box_schedule.expand {
-  width: 30%;
 }
 
 .box_time {
@@ -624,6 +621,10 @@
   flex-wrap: wrap;
   justify-content: space-between;
   min-height: 80px;
+  width: 18%;
+}
+.box_schedule.expand {
+  width: 30%;
 }
 .box_schedule.is_active .text_schedule {
   font-weight: 700;
@@ -666,7 +667,8 @@
   content: "";
   background-image: url("https://www.koreanair.com/icon-main-quick__seatclass.svg");
 }
-.box_schedule .title_schedule {
+
+.title_schedule {
   flex: none;
   width: 100%;
   color: var(--lightgray);
@@ -676,19 +678,21 @@
   margin-bottom: 9px;
   font-style: normal;
 }
-.box_schedule .input_schedule {
+
+.input_schedule {
   width: 100%;
   min-height: 42px;
   border-bottom: 1px solid var(--lightgray);
   text-transform: uppercase;
 }
-.box_schedule .input_schedule::-moz-placeholder {
+.input_schedule::-moz-placeholder {
   font-size: 16px;
 }
-.box_schedule .input_schedule::placeholder {
+.input_schedule::placeholder {
   font-size: 16px;
 }
-.box_schedule .btn_schedule {
+
+.btn_schedule {
   position: relative;
   display: flex;
   width: 100%;
@@ -701,7 +705,8 @@
   border-bottom: 1px solid var(--lightgray);
   cursor: pointer;
 }
-.box_schedule .calendar:before {
+
+.calendar:before {
   display: block;
   width: 24px;
   height: 24px;
@@ -710,7 +715,8 @@
   content: "";
   background-image: url("https://www.koreanair.com/icon-main-quick__calendar.svg");
 }
-.box_schedule .text_schedule {
+
+.text_schedule {
   display: flex;
   align-items: center;
   color: var(--lightgray);
@@ -775,22 +781,22 @@
 }
 
 @media screen and (max-width: 1060px) {
-  .list_tab .item_tab {
+  .item_tab {
     position: relative;
     border-radius: 0;
     font-size: 12px;
     margin-left: 0;
   }
-  .list_tab .item_tab:first-child {
+  .item_tab:first-child {
     border-top-left-radius: 20px;
   }
-  .list_tab .item_tab:first-child:after {
+  .item_tab:first-child:after {
     display: none;
   }
-  .list_tab .item_tab:last-child {
+  .item_tab:last-child {
     border-top-right-radius: 20px;
   }
-  .list_tab .item_tab:after {
+  .item_tab:after {
     position: absolute;
     left: 0;
     top: 50%;
@@ -831,37 +837,37 @@
     flex-direction: column;
     align-items: center;
   }
-  .area_booking .box_booking {
+  .box_booking {
     width: auto;
     margin-right: 0;
   }
-  .area_booking .box_booking .btn_booking,
-  .area_booking .box_booking .link_booking {
+  .box_booking .btn_booking,
+  .box_booking .link_booking {
     font-size: 14px;
   }
   .area_schedule {
     flex-direction: column;
     margin-top: 14px;
   }
-  .area_schedule .box_time {
+  .box_time {
     width: 100%;
     padding-bottom: 14px;
     border-bottom: 1px dashed var(--gray3);
   }
-  .area_schedule .box_information {
+  .box_information {
     position: relative;
     flex-direction: column;
     width: 100%;
     padding-left: 0;
   }
-  .area_schedule .box_information .box_schedule {
+  .box_information .box_schedule {
     width: 100%;
   }
-  .area_schedule .btn_find {
+  .btn_find {
     width: 100%;
     margin-top: 30px;
   }
-  .area_schedule .box_schedule {
+  .box_schedule {
     position: static;
   }
   .notice {
@@ -1027,27 +1033,31 @@
   border-radius: 16px;
   overflow: hidden;
 }
-.area_notice .box_banner {
+
+.box_banner {
   position: relative;
   max-width: 500px;
   flex: 1 0 auto;
 }
-.area_notice .banner_link {
+
+.banner_link {
   display: block;
   width: 100%;
   height: 100%;
 }
-.area_notice .list_notice {
+
+.list_notice {
   margin-right: 50px;
   width: 60%;
 }
-.area_notice .item_notice:last-child {
+
+.item_notice:last-child {
   border-bottom: 1px solid var(--gray);
 }
-.area_notice .item_notice :hover .headline {
+.item_notice :hover .headline {
   text-decoration: underline;
 }
-.area_notice .item_notice .link {
+.item_notice .link {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1056,11 +1066,13 @@
   padding: 24px 0;
   border-top: 1px solid var(--gray);
 }
-.area_notice .date {
+
+.date {
   color: var(--lightgray);
   font-size: 14px;
 }
-.area_notice .headline {
+
+.headline {
   overflow: hidden;
   display: -webkit-box;
   margin-right: 60px;
@@ -1072,20 +1084,23 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
-.area_notice .banner_text {
+
+.banner_text {
   position: absolute;
   top: 40px;
   left: 40px;
   max-width: 190px;
 }
-.area_notice .banner_title {
+
+.banner_title {
   color: var(--white);
   font-size: 18px;
   line-height: 1.5;
   font-weight: 700;
   font-style: normal;
 }
-.area_notice .banner_desc {
+
+.banner_desc {
   margin-top: 10px;
   color: var(--white);
   font-size: 14px;
@@ -1117,27 +1132,27 @@
   .area_notice {
     flex-wrap: wrap;
   }
-  .area_notice .list_notice {
+  .list_notice {
     width: 100%;
     margin-right: 0;
   }
-  .area_notice .item_notice .link {
+  .item_notice .link {
     flex-direction: column;
     align-items: flex-start;
   }
-  .area_notice .item_notice .headline {
+  .item_notice .headline {
     margin-right: 0;
   }
-  .area_notice .item_notice .date {
+  .item_notice .date {
     margin-top: 15px;
   }
-  .area_notice .box_banner {
+  .box_banner {
     max-width: none;
     height: 49vw;
     max-height: 200px;
     margin-top: 25px;
   }
-  .area_notice .banner_text {
+  .banner_text {
     top: 20px;
     left: 20px;
     width: 50%;
@@ -1193,7 +1208,8 @@
 .item_category:hover .box_link {
   display: flex;
 }
-.item_category .box_link {
+
+.box_link {
   position: absolute;
   left: 50%;
   top: calc(100% + 18px);
@@ -1204,7 +1220,7 @@
   transform: translateX(-50%);
   box-sizing: border-box;
 }
-.item_category .box_link:before {
+.box_link:before {
   position: absolute;
   top: -8px;
   left: 50%;
@@ -1216,7 +1232,8 @@
   transform: translateX(-50%);
   content: "";
 }
-.item_category .link_experience {
+
+.link_experience {
   position: relative;
   display: block;
   width: 100%;
@@ -1227,10 +1244,10 @@
   white-space: nowrap;
   box-sizing: border-box;
 }
-.item_category .link_experience + .link_experience {
+.link_experience + .link_experience {
   margin-left: -10px;
 }
-.item_category .link_experience + .link_experience:before {
+.link_experience + .link_experience:before {
   display: inline-block;
   width: 1px;
   height: 100%;
@@ -1239,10 +1256,11 @@
   vertical-align: middle;
   content: "";
 }
-.item_category .link_experience:hover {
+.link_experience:hover {
   text-decoration: underline;
 }
-.item_category .btn_category {
+
+.btn_category {
   width: 100%;
   padding: 18px;
   color: var(--black);
@@ -1254,47 +1272,47 @@
   font-family: "Noto sans KR";
   box-sizing: border-box;
 }
-.item_category .btn_category.is_active {
+.btn_category.is_active {
   background-color: rgb(255, 255, 255);
 }
-.item_category .btn_category:hover {
+.btn_category:hover {
   background-color: rgba(255, 255, 255, 0.8);
 }
-.item_category .btn_category:hover + .box_link {
+.btn_category:hover + .box_link {
   display: flex;
 }
 
 @media screen and (max-width: 1060px) {
-  .list_category {
-    flex-wrap: wrap;
-  }
-  .list_category .item_category {
-    margin-left: 0;
-    margin-bottom: 10px;
-  }
   .section_category .inner.is_active {
     transition: none;
     padding-bottom: 50px;
   }
+  .list_category {
+    flex-wrap: wrap;
+  }
+  .item_category {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
   .item_category:after {
     display: none;
   }
-  .item_category .btn_category {
+  .btn_category {
     position: relative;
     padding-left: 80px;
     padding-right: 40px;
     text-align: left;
     cursor: pointer;
   }
-  .item_category .btn_category.is_open {
+  .btn_category.is_open {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     background-color: rgb(255, 255, 255);
   }
-  .item_category .btn_category.is_open:hover {
+  .btn_category.is_open:hover {
     background-color: rgb(255, 255, 255);
   }
-  .item_category .btn_category + .box_link {
+  .btn_category + .box_link {
     position: static;
     padding-left: 70px;
     padding-bottom: 20px;
@@ -1304,16 +1322,16 @@
     text-align: left;
     background-color: rgb(255, 255, 255);
   }
-  .item_category .btn_category + .box_link:before {
+  .btn_category + .box_link:before {
     display: none;
   }
-  .item_category .btn_category:hover {
+  .btn_category:hover {
     background-color: rgba(255, 255, 255, 0.5);
   }
-  .item_category .btn_category:hover + .box_link {
+  .btn_category:hover + .box_link {
     display: none;
   }
-  .item_category .btn_category .img_category {
+  .btn_category .img_category {
     position: absolute;
     top: 50%;
     left: 20px;
@@ -1322,7 +1340,7 @@
     margin-top: 0;
     transform: translateY(-50%);
   }
-  .item_category .btn_category:after {
+  .btn_category:after {
     position: absolute;
     top: 50%;
     right: 20px;
@@ -1332,13 +1350,13 @@
     transform: translateY(-50%);
     content: "";
   }
-  .item_category .btn_category + .box_link {
+  .btn_category + .box_link {
     display: none;
   }
-  .item_category .btn_category.is_open:after {
+  .btn_category.is_open:after {
     transform: translateY(-50%) rotate(180deg);
   }
-  .item_category .btn_category.is_open + .box_link {
+  .btn_category.is_open + .box_link {
     display: block;
   }
 }
@@ -1354,7 +1372,8 @@
   background-color: var(--bg-gray);
   flex-wrap: wrap;
 }
-.footer .copyright {
+
+.copyright {
   display: inline-block;
   color: var(--darkgray);
   font-size: 14px;
@@ -1364,7 +1383,8 @@
   display: inline-block;
   font-size: 0;
 }
-.box_award .link_award {
+
+.link_award {
   display: inline-block;
   width: 70px;
   height: 70px;
@@ -1372,10 +1392,12 @@
   background-position: center;
   background-size: cover;
 }
-.box_award .tripadvisor {
+
+.tripadvisor {
   background-image: url("https://www.koreanair.com/logo__trip-m.png");
 }
-.box_award .skytrax {
+
+.skytrax {
   background-image: url("https://www.koreanair.com/logo__skytrax.png");
 }
 
@@ -1393,20 +1415,24 @@
   width: 100%;
   box-sizing: border-box;
 }
-.area_sitemap .box_sitemap {
+
+.box_sitemap {
   width: 100%;
   margin-right: 10px;
 }
-.area_sitemap .title_sitemap {
+
+.title_sitemap {
   color: var(--black);
   font-weight: 700;
   font-size: 16px;
 }
-.area_sitemap .sitemap_panel {
+
+.sitemap_panel {
   margin-top: 15px;
   margin-bottom: 24px;
 }
-.area_sitemap .link_sitemap {
+
+.link_sitemap {
   display: block;
   margin: 2px 0;
   padding: 2px 0;
@@ -1414,10 +1440,10 @@
   font-size: 14px;
   text-decoration: none;
 }
-.area_sitemap .link_sitemap.bold {
+.link_sitemap.bold {
   font-weight: 700;
 }
-.area_sitemap .link_sitemap:hover {
+.link_sitemap:hover {
   text-decoration: underline;
 }
 
@@ -1428,50 +1454,54 @@
   border-top: 1px solid var(--gray);
   padding-top: 24px;
 }
-.box_pr .box_download {
+
+.box_download {
   display: flex;
   margin-right: 50px;
 }
-.box_pr .box_sns {
+
+.box_sns {
   display: flex;
   justify-content: center;
 }
-.box_pr .item_sns {
+
+.item_sns {
   display: block;
   width: 44px;
   height: 44px;
 }
-.box_pr .item_sns:not(:last-child) {
+.item_sns:not(:last-child) {
   margin-right: 8px;
 }
-.box_pr .item_sns.youtube {
+.item_sns.youtube {
   background-image: url("https://www.koreanair.com/sns__link--youtube.svg");
 }
-.box_pr .item_sns.instagram {
+.item_sns.instagram {
   background-image: url("https://www.koreanair.com/sns__link--instagram.svg");
 }
-.box_pr .item_sns.facebook {
+.item_sns.facebook {
   background-image: url("https://www.koreanair.com/sns__link--facebook.svg");
 }
-.box_pr .item_sns.twitter {
+.item_sns.twitter {
   background-image: url("https://www.koreanair.com/sns__link--twitter.svg");
 }
-.box_pr .item_sns.google {
+.item_sns.google {
   width: 118px;
   height: 34px;
   background-image: url("https://www.koreanair.com/wwwupload/maincontents/footer/banner-googleplay.png");
 }
-.box_pr .item_sns.apple {
+.item_sns.apple {
   width: 118px;
   height: 34px;
   background-image: url("https://www.koreanair.com/wwwupload/maincontents/footer/banner-appstore.png");
 }
-.box_pr .img_pr {
+
+.img_pr {
   margin-left: auto;
   width: 68px;
   height: 34px;
 }
-.box_pr .img_pr img {
+.img_pr img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -1490,7 +1520,7 @@
     justify-content: center;
     border-top: none;
   }
-  .box_pr .box_download {
+  .box_download {
     justify-content: center;
     width: 100%;
     margin-right: 0;
