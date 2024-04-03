@@ -834,6 +834,11 @@
         padding-top: 0;
       }
     }
+    &.type_single {
+      .box_schedule {
+        min-width: auto;
+      }
+    }
   }
   .area_booking {
     flex-direction: column;
@@ -1306,6 +1311,9 @@
     margin-bottom: 10px;
     &:after {
       display: none;
+    }
+    &:not(:first-child) {
+      margin-left: 0;
     }
   }
   .btn_category {

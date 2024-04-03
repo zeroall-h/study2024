@@ -834,6 +834,9 @@
   .tabpanel.type_align .box_confirm {
     padding-top: 0;
   }
+  .tabpanel.type_single .box_schedule {
+    min-width: auto;
+  }
   .area_booking {
     flex-direction: column;
     align-items: center;
@@ -1297,6 +1300,9 @@
   }
   .item_category:after {
     display: none;
+  }
+  .item_category:not(:first-child) {
+    margin-left: 0;
   }
   .btn_category {
     position: relative;
