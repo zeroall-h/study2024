@@ -1,32 +1,32 @@
 // 타입 별칭
-type Store = {
+interface Store {
   currentPage: number;
   feeds: NewsFeed[];
-};
+}
 
-type News = {
+interface News {
   id: number;
   time_ago: string;
   title: string;
   url: string;
   user: string;
   content: string;
-};
+}
 
-type NewsFeed = News & {
+interface NewsFeed extends News {
   comments_count: number;
   points: number;
   read?: boolean;
-};
+}
 
-type NewsDetail = News & {
+interface NewsDetail extends News {
   comments: NewComment[];
-};
+}
 
-type NewComment = News & {
+interface NewComment extends News {
   comments: NewComment[];
   level: number;
-};
+}
 const container: HTMLElement | null = document.getElementById("root");
 const ajax: XMLHttpRequest = new XMLHttpRequest();
 const NEWS_URL = "https://api.hnpwa.com/v0/news/1.json";
