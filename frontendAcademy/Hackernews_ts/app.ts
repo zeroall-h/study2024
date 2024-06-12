@@ -5,27 +5,27 @@ interface Store {
 }
 
 interface News {
-  id: number;
-  time_ago: string;
-  title: string;
-  url: string;
-  user: string;
-  content: string;
+  readonly id: number;
+  readonly time_ago: string;
+  readonly title: string;
+  readonly url: string;
+  readonly user: string;
+  readonly content: string;
 }
 
 interface NewsFeed extends News {
-  comments_count: number;
-  points: number;
+  readonly comments_count: number;
+  readonly points: number;
   read?: boolean;
 }
 
 interface NewsDetail extends News {
-  comments: NewComment[];
+  readonly comments: NewsComment[];
 }
 
-interface NewComment extends News {
-  comments: NewComment[];
-  level: number;
+interface NewsComment extends News {
+  readonly comments: NewsComment[];
+  readonly level: number;
 }
 const container: HTMLElement | null = document.getElementById("root");
 const ajax: XMLHttpRequest = new XMLHttpRequest();
@@ -37,12 +37,47 @@ const store: Store = {
   feeds: [],
 };
 
-function getData<AjaxResponse>(url: string): AjaxResponse {
-  ajax.open("GET", url, false);
-  ajax.send();
+function applyApiMixins(targetClass: any, baseClasses: any[]): void {
+  baseClasses.forEach((baseClass) => {
+    Object.getOwnPropertyNames(baseClass.prototype).forEach((name) => {
+      const descriptor = Object.getOwnPropertyDescriptor(
+        baseClass.prototype,
+        name
+      );
 
-  return JSON.parse(ajax.response);
+      if (descriptor) {
+        Object.defineProperty(targetClass.prototype, name, descriptor);
+      }
+    });
+  });
 }
+
+class Api {
+  getRequest<AjaxResponse>(url: string): AjaxResponse {
+    const ajax = new XMLHttpRequest();
+    ajax.open("GET", url, false);
+    ajax.send();
+
+    return JSON.parse(ajax.response);
+  }
+}
+
+class NewsFeedApi {
+  getData(): NewsFeed[] {
+    return this.getRequest<NewsFeed[]>(NEWS_URL);
+  }
+}
+
+class NewsDetailApi {
+  getData(id: string): NewsDetail[] {
+    return this.getRequest<NewsDetail[]>(CONTENT_URL.replace("@id", id));
+  }
+}
+interface NewsFeedApi extends Api {}
+interface NewsDetailApi extends Api {}
+applyApiMixins(NewsFeedApi, [Api]);
+applyApiMixins(NewsDetailApi, [Api]);
+
 function makeFeeds(feeds: NewsFeed[]): NewsFeed[] {
   for (let i = 0; i < feeds.length; i++) {
     feeds[i].read = false;
@@ -57,8 +92,9 @@ function updateView(html: string): void {
   }
 }
 function newsFeed(): void {
-  let newsFeed: NewsFeed[] = getData(NEWS_URL);
-  const newsList = [];
+  const api = new NewsFeedApi();
+  let newsFeed: NewsFeed[] = store.feeds;
+  const newsList: string[] = [];
   let template = `
     <div class="bg-gray-600 min-h-screen">
       <div class="bg-white text-xl">
@@ -85,7 +121,7 @@ function newsFeed(): void {
   `;
 
   if (newsFeed.length === 0) {
-    newsFeed = store.feeds = makeFeeds(getData<NewsFeed[]>(NEWS_URL));
+    newsFeed = store.feeds = makeFeeds(api.getData());
   }
   for (let i = (store.currentPage - 1) * 10; i < store.currentPage * 10; i++) {
     newsList.push(`
@@ -123,7 +159,8 @@ function newsFeed(): void {
 
 function newsDetail(): void {
   const id = location.hash.substr(7);
-  const newsContent = getData<NewsDetail>(CONTENT_URL.replace("@id", id));
+  const api = new NewsDetailApi();
+  const newsDetail: NewsDetail = api.getData(id);
   let template = `
     <div class="bg-gray-600 min-h-screen pb-8">
       <div class="bg-white text-xl">
@@ -142,9 +179,9 @@ function newsDetail(): void {
       </div>
 
       <div class="h-full border rounded-xl bg-white m-6 p-4 ">
-        <h2>${newsContent.title}</h2>
+        <h2>${newsDetail.title}</h2>
         <div class="text-gray-400 h-20">
-          ${newsContent.content}
+          ${newsDetail.content}
         </div>
 
         {{__comments__}}
@@ -154,14 +191,14 @@ function newsDetail(): void {
   `;
 
   updateView(
-    template.replace("{{__comments__}}", makeComment(newsContent.comments))
+    template.replace("{{__comments__}}", makeComment(newsDetail.comments))
   );
 }
-function makeComment(comments: NewComment[]): string {
+function makeComment(comments: NewsComment[]): string {
   const commentString = [];
 
   for (let i = 0; i < comments.length; i++) {
-    const comment: NewComment = comments[i];
+    const comment: NewsComment = comments[i];
     commentString.push(`
       <div style="padding-left: ${comment.level * 40}px;" class="mt-4">
         <div class="text-gray-400">
