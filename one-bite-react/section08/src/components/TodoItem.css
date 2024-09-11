@@ -1,0 +1,25 @@
+.item_todo{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(240,240,240);
+}
+.input_todo_check{
+  width: 20px;
+}
+.title_todo{
+  flex: 1;
+}
+.date{
+  font-size: 14px;
+  color: gray;
+}
+.btn_delete{
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  color: gray;
+  cursor: pointer;
+}

@@ -1,0 +1,21 @@
+.box_edit{
+  display: flex;
+  gap: 10px;
+}
+.input_todo{
+  flex: 1;
+  padding: 15px;
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 5px;
+}
+.input_todo:focus{
+  outline-color:  rgb(37,147,255);
+}
+.btn_add{
+  width: 80px;
+  background-color: rgb(37,147,255);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}

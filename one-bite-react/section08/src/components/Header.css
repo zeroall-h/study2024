@@ -1,0 +1,9 @@
+.title{
+  color: rgb(37,147,255);
+}
+.text_small{
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+}
