@@ -19,7 +19,7 @@
 - 해커뉴스 클라이언트 앱
   - <a href="https://zeroall-h.github.io/study2024/frontendAcademy/hackernews/2_12줄로_코드작성하기">12줄로 코드 작성하기</a>
   - <a href="https://zeroall-h.github.io/study2024/frontendAcademy/hackernews/3_두개의화면">두 개의 화면</a>
-  - <a href="https://zeroall-h.github.io/study2024/frontendAcademy/hackernews/">문자열을 활용한 HTML 다루기</a>
+  - <a href="https://zeroall-h.github.io/study2024/frontendAcademy/hackernews/4_문자열을_활용한_HTML_다루기">문자열을 활용한 HTML 다루기</a>
   - <a href="https://zeroall-h.github.io/study2024/frontendAcademy/hackernews/5_화면처리기_만들기">화면 처리기</a>
   - <a href="https://zeroall-h.github.io/study2024/frontendAcademy/hackernews/6_페이징_구현하기">페이징 구현</a>
   - <a href="https://zeroall-h.github.io/study2024/frontendAcademy/hackernews/7_복잡한_UI_구현을_위한_준비작업">복잡한 UI 구현을 위한 준비작업</a>
