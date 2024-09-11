@@ -6,8 +6,10 @@
 - ATOM 신규 페이지 코드리뷰
 <br><br>
 
-## FEP 역량 강화 - 번외
-
+## FEP 역량 강화
+### 상반기
+- gitlab 저장소
+### 번외
 - <a href="https://zeroall-h.github.io/study2024/one-bite-react/section06/dist">Counter App</a>
 - <a href="https://zeroall-h.github.io/study2024/one-bite-react/section08/dist">Todo List</a>
 <br><br>
