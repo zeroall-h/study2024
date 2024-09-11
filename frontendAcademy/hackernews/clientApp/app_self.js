@@ -51,7 +51,7 @@ function newsFeed(){
     newsList.push(`
     <div class="${newsFeed[i].read ? 'bg-red-500' : 'bg-white'} p-6 mt-6 rounded-lg shadow-md transition-colors duration-500 hover:bg-green-100">
       <div class="flex justify-between">
-        <a href="#/show/${newsFeed[i].id}">${newsFeed[i].title}</a>
+        <a href="#/show/${newsFeed[i].id}" class="block">${newsFeed[i].title}</a>
         <p class="inline-flex align-center justify-center flex-none text-sm w-10 text-white bg-green-300 rounded-lg px-0 py-2 h-9 ml-4">${newsFeed[i].comments_count}</p>
       </div>
       <ul class="mt-3 flex gap-x-10 text-sm text-gray-500">
