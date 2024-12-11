@@ -1,19 +1,20 @@
 {
-  "dependencies": {
-    "parcel": "^2.13.2",
-    "parcel-bundler": "^1.12.5"
-  },
   "name": "signup",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
-  "devDependencies": {
-    "typescript": "^5.5.3"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "browserslist": [
+    "last 1 Chrome version"
+  ],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
 }
